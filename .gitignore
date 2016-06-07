@@ -1,0 +1,5 @@
+venv/*
+pytest
+
+staticfiles/
+.coverage
