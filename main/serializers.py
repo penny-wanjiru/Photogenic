@@ -3,8 +3,8 @@ from rest_framework import serializers
 from models import Image
 
 
-class PhotoSerializer(serializers.ModelSerializer):
-    """Define original photo serializer fields."""
+class ImageSerializer(serializers.ModelSerializer):
+    """Image serializer fields."""
 
     image = serializers.ImageField(use_url=True)
 
