@@ -3,3 +3,6 @@ pytest
 
 staticfiles/*
 .coverage
+node_modules
+static/js/build/*
+
