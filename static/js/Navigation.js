@@ -1,18 +1,28 @@
 import React, {Component} from "react";
 
  //es6
- class Nav extends Component{
+class Nav extends Component{
   render() {
-    return (      
-        <nav className="navbar navbar-default">
-          <div className="container-fluid">
-            <div className="navbar-header">
-              <a className="navbar-brand" href="#">
-                <img alt="Brand" src="..." />
-              </a>
+    return ( 
+
+      <div>
+          <div className="row">
+            <div className="col s12 m4 l3 sidebar">
+              <ul className="tabs">
+                <li className="tab select col s6 active"><a href="#">IMAGES</a></li>
+              </ul>
+            <div className="col s12 m8 l9">
+                <div className="col s12 ">
+                    
+                  <a className="waves-effect waves-light btn">Upload Image</a>
+
+                </div>
             </div>
           </div>
-        </nav>
+          <div className="row">
+          </div>
+      </div> 
+      </div>         
     );
   }
 };

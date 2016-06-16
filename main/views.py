@@ -18,7 +18,7 @@ class login_view(TemplateView):
        methods:"GET","POST"
     """
     def get(self, request):
-        return render(request, 'app.html')
+        return render(request, 'login.html')
 
 
 class main_view(TemplateView):

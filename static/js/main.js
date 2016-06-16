@@ -9,7 +9,7 @@ class Sidebar extends React.Component {
           <div className="row">
             <div className="col s12 m4 l3 photolist">
               <ul className="tabs">
-                <li className="col s6 "><a href="#">Library</a></li>
+                <li className="col s6"><a href="#">Library</a></li>
               </ul>
             </div>
             <div className="col s12 m8 l9">
