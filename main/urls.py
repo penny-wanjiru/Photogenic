@@ -7,5 +7,5 @@ urlpatterns = [
     url(r'^$', login_view.as_view(), name='index'),
     url(r'main/^$', main_view.as_view(), name='main'),
     url(r'^images/$', ImageListCreateView.as_view()),
-    url(r'^image/(?P<pk>[0-9]+)/$', ImageDetailView.as_view()),
+    url(r'^images/(?P<pk>[0-9]+)/$', ImageDetailView.as_view()),
 ]

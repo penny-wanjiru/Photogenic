@@ -3,11 +3,10 @@ from .serializers import (
 )
 from rest_framework.generics import (
     ListCreateAPIView,
-    RetrieveAPIView
+    RetrieveDestroyAPIView
 )
 from django.shortcuts import render
-from django.views.generic import TemplateView, View
-from rest_framework import generics
+from django.views.generic import TemplateView
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.authentication import BasicAuthentication
 
@@ -31,7 +30,7 @@ class main_view(TemplateView):
 
 
 class ImageListCreateView(ListCreateAPIView):
-    """Handle the URL to list all image"""
+    """Handle the URL to list all images"""
     queryset = Image.objects.all()
     serializer_class = ImageSerializer
     authentication_classes = [BasicAuthentication]
@@ -45,7 +44,7 @@ class ImageListCreateView(ListCreateAPIView):
         serializer.save(uploader=self.request.user)
 
 
-class ImageDetailView(RetrieveAPIView):
+class ImageDetailView(RetrieveDestroyAPIView):
     """Handle the URL to list one image"""
 
     queryset = Image.objects.all()
