@@ -1,17 +1,21 @@
 import React, {Component} from "react";
 import Navigation from "./Navigation.js"
+import Canvas from "./Canvas.js"
 // import main from "./main.js"
  //es6
-class Hello extends Component{
+class Main extends Component{
   render() {
     return (
-      <div>
+      <div className="main">
+      <div className="row">
         <Navigation/>
+        <Canvas/>
+      </div>  
       </div>
     );
   }
 };
-export default Hello
+export default Main
 
  //es5
  /*

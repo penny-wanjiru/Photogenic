@@ -8,6 +8,7 @@
     <link rel="stylesheet" type="text/css" href="{% static 'app/app.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'new/app.css' %}">
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Source Sans Pro">
+    <link type="text/css" rel="stylesheet" href="{% static 'css/materialize.min.css' %}"  media="screen,projection"/>
 </head>
 <body class="is-loading" id="index">
     {% block content %}
@@ -15,5 +16,6 @@
     <footer id="footer"></footer>
     <script src="assets/libs.js"></script>
     <script src="./static/js/build/bundle.js"></script>
+    <script type="text/javascript" src="{% static 'js/materialize.min.js' %}"></script>
 </body>
 </html>
