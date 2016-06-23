@@ -33,15 +33,15 @@ class ImageListCreateView(ListCreateAPIView):
     """Handle the URL to list all images"""
     queryset = Image.objects.all()
     serializer_class = ImageSerializer
-    authentication_classes = [BasicAuthentication]
-    permission_classes = [IsAuthenticated]
+    # authentication_classes = [BasicAuthentication]
+    # permission_classes = [IsAuthenticated]
 
     def get_queryset(self):
         """Get the user's images"""
-        return Image.objects.filter(uploader=self.request.user)
+        return Image.objects.all()
 
     def perform_create(self, serializer):
-        serializer.save(uploader=self.request.user)
+        serializer.save()
 
 
 class ImageDetailView(RetrieveDestroyAPIView):
@@ -49,5 +49,5 @@ class ImageDetailView(RetrieveDestroyAPIView):
 
     queryset = Image.objects.all()
     serializer_class = ImageSerializer
-    permission_classes = [IsAuthenticated]
-    authentication_classes = [BasicAuthentication]
+    # permission_classes = [IsAuthenticated]
+    # authentication_classes = [BasicAuthentication]
