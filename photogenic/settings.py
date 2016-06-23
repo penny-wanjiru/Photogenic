@@ -84,7 +84,7 @@ WSGI_APPLICATION = 'photogenic.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'photogenic',
+        'NAME': 'newphotogenic',
         'USER': 'postgres',
         'PASSWORD': 'Andela2015'
     }
@@ -140,3 +140,6 @@ AUTHENTICATION_BACKENDS = (
 SITE_ID = 1
 
 LOGIN_REDIRECT_URL = '/main/'
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = 'media'

@@ -5,19 +5,18 @@ import Filters from "./Filters.js"
 class Canvas extends Component{
   render() {
     return ( 
-      <div>
-            <div className="col m9 canvas">
-              <div className="col m12">
-                    <form action="#">
-                      <div className="file-field input-field">
-                      <Maincanvas/>
-                      <Filters/>  
-                      </div>
-                    </form>
-              </div>
-            </div>
-        
-      </div>         
+        <div className="col m9 canvas">
+          <div className="col m12">
+                <form action="#">
+                  <div className="file-field input-field">
+                  <Maincanvas/>
+                  <Filters/>  
+                  </div>
+                </form>
+          </div>
+        </div>
+    
+            
     );
   }
 };

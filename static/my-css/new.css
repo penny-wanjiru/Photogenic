@@ -49,20 +49,21 @@
 }
 .sidebar {
     background-color:#33343c;
-    min-height:728px;
+    height: 100vh;
 
 }
 .canvas {
     background-color:#255;
+    height: 100vh;
     
 }
 .maincanvas {
     background-color:#33343c;
-    min-height:450px;
+    height: 65vh;
 }
 .filters{
     background-color:#33343c;
-    min-height:228px;
+    height:25vh;
     margin-top: 20px;
 }
 .active {
@@ -70,4 +71,16 @@
 }
 .tabs .tab a {
     color:white;
+} 
+.card-content img {
+    max-width: 100%;
+}
+#content{
+    height: 100vh;
+    position: fixed; 
+    width: 100vw;  
+}
+.side{
+    overflow-y: scroll;
+    height: 90vh;
 } 

@@ -2,30 +2,18 @@ import React, { Component } from "react";
 import request from 'superagent';
 
 
-
-// class Home extends Component {
-//   constructor() {
-//     super();
-//     this.state = {
-//       images: []
-//     }
-
-//   };
-// }
-
 class SideImage extends Component{
   render() {
     return(
-        <div className="row">
+      <div className="row">
         <div className="col s12 m12">
           <div className="card blue-grey darken-1">
             <div className="card-content white-text">
-              <span className="card-title">Card Title</span>
               <img src={this.props.url} />
             </div>
             <div className="card-action">
-              <a href="#">This is a link</a>
-              <a href="#">This is a link</a>
+              {this.props.date_created}
+              {this.props.date_updated}
             </div>
           </div>
         </div>
@@ -65,12 +53,12 @@ class Nav extends Component {
   render() {
     const sideImages = this._displayImages()
     return (   
-      <div>
+      
       <div className = "col m3 sidebar">
       <ul className = "tabs" >
       <li className = "tab select col s6 active"> <a href = "#" > IMAGES </a></li >
       </ul>   
-      <div className = "col s12 m12" > < form action = "#">
+      <div className = "side col s12 m12" > < form action = "#">
       <div className = "file-field input-field">
       <div className = "btn" >
       <span> Upload </span> 
@@ -81,7 +69,7 @@ class Nav extends Component {
       
       </div> < /div > < /form>
       {sideImages}
-      < /div > < /div> < /div >
+      < /div > < /div> 
     );
   }
 };
