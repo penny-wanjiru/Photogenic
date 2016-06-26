@@ -9,9 +9,10 @@ class SideImage extends Component{
         <div className="col s12 m12">
           <div className="card blue-grey darken-1">
             <div className="card-content white-text">
-              <img src={this.props.url} />
+              <img src={this.props.url} onClick={() => props.update(props.photo)}  />
             </div>
             <div className="card-action">
+              <a style={{marginLeft: 15}} className="delete tooltipped" data-position="right" data-delay="50" data-tooltip="Delete" onClick={() => props.delete(props.photo)} href="#"><i className="material-icons">delete</i></a>
               {this.props.date_created}
               {this.props.date_updated}
             </div>

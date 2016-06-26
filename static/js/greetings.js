@@ -18,22 +18,23 @@ class Main extends Component{
   }
 
   _addimage(formData) {
-    console.log(formData)
-    const images = this.state.images
+    let images = this.state.images    
     request
       .post('/api/images/')
       .send(formData)
       .end(
         (err, result) => {
-          if (!err) {
-            window.Materialize.toast('Your image has been uploaded', 2000);
-            this.setState({
-              images: images.push(result.body)
-            })
-            console.log(result)
+          if (err) {
+           console.log('error: ', err)
+           window.Materialize.toast('Oops there seems to be a problem uploading!', 2000);
 
           } else {
-            window.Materialize.toast('Oops there seems to be a problem uploading!', 2000);
+            // window.Materialize.toast('Your image has been uploaded', 2000);
+            this.setState({
+              images: images.concat([result.body])
+            })
+            console.log(images)
+            
           }
         });
   }
@@ -43,7 +44,6 @@ class Main extends Component{
       .get('/api/images/')
       .end((err, result) => {
         if (result.body) {
-          console.log(result.body)
           this.setState({
             images: result.body,
           });
@@ -54,6 +54,22 @@ class Main extends Component{
         }
       });
   }
+  _deleteImage() {
+    
+    this.setState({ images });
+    request
+      .delete('/api/images/${image.id}/')
+      .end((err, result) => {
+        if (result.status === 200) {
+          this._getimages();
+        } else {
+          this.setState({
+            deleteError: true,
+          });
+        }
+      });
+  }
+
 
   render() {
     return (
