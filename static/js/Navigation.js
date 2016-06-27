@@ -6,7 +6,6 @@ class SideImage extends Component{
 
 
   _clicked(e){
-    //console.log(this.props.url)
     this.props.onImageClick(this.props.url)
   }
   render() {
@@ -18,7 +17,12 @@ class SideImage extends Component{
               <img src={this.props.url} onClick={this._clicked.bind(this)}/>
             </div>
             <div className="card-action">
-              <a style={{marginLeft: 15}} className="delete tooltipped" data-position="right" data-delay="50" data-tooltip="Delete" onClick={() => props.delete(props.photo)} href="#"><i className="material-icons">delete</i></a>
+              <IconButton
+                          touch={true}
+                          tooltip="delete"
+                          tooltipPosition="top-center"
+                          onTouchTap={this.handleDeleteDialog}
+                          ><Delete color={Colors.pinkA200} /></IconButton>
               {this.props.date_created}
               {this.props.date_updated}
             </div>
@@ -34,22 +38,11 @@ class SideImage extends Component{
 class Nav extends Component {
   constructor() {
     super();
-    this.state = {
-      url: [] 
-    }
- 
   this._handleUpload = this._handleUpload.bind(this);
   this._displayImages = this._displayImages.bind(this);
-  this._updated = this._updated.bind(this);
+  
   }
 
-_updated(url) {
-  var selected = this.state.url;
-  selected.push(url);
-  this.setState({url: selected});
-  console.log(url)
-  
-}
    
   _displayImages() {
   return (this.props.photos.map((image) => {
@@ -74,9 +67,7 @@ _updated(url) {
     }
     this.props.onAddItem(formData)
   }
-  _handleprop(e){
-    this.props.select()
-  } 
+  
   render() {
     const sideImages = this._displayImages()
     return (   

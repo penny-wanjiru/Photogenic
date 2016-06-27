@@ -3,6 +3,7 @@ import Nav from "./Navigation.js"
 import Canvas from "./Canvas.js"
 import request from 'superagent'
 // import main from "./main.js"
+import FlatButton from 'material-ui/lib/flat-button';
  //es6
 class Main extends Component{
   constructor() {
@@ -72,11 +73,6 @@ class Main extends Component{
         }
       });
   }
-_children(photourl) {
-  var selected = this.state.selectedPhoto
-  selected.push(photourl)
-  this.setState({selectedPhoto: selected})
-}
 
 _updateView(url){
  if (url !== '') {
@@ -84,15 +80,13 @@ _updateView(url){
     url
   })
  } 
-
-
 }
 
   render() {
     return (
       <div className="main">
       <div className="row">
-        <Nav onAddItem={this._addimage} photos={this.state.images} select={this._children} onImageClick={this._updateView}/>
+        <Nav onAddItem={this._addimage} photos={this.state.images} onImageClick={this._updateView}/>
         <Canvas canvased={this.state.selectedPhoto} url={this.state.url}/>
       </div>  
       </div>
