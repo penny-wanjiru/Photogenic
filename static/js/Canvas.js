@@ -3,6 +3,11 @@ import Maincanvas from "./Maincanvas.js"
 import Filters from "./Filters.js"
  //es6
 class Canvas extends Component{
+
+ _handleprop(e){
+    this.props.select()
+  }
+  
   render() {
     return ( 
         <div className="col m9 canvas">

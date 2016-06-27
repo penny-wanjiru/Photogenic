@@ -8,7 +8,8 @@ class Main extends Component{
   constructor() {
     super();
     this.state = {
-      images: []
+      images: [],
+      selectedPhoto:[]
     }
   this._addimage = this._addimage.bind(this);
   }
@@ -29,7 +30,7 @@ class Main extends Component{
            window.Materialize.toast('Oops there seems to be a problem uploading!', 2000);
 
           } else {
-            // window.Materialize.toast('Your image has been uploaded', 2000);
+            window.Materialize.toast('Your image has been uploaded', 2000);
             this.setState({
               images: images.concat([result.body])
             })
@@ -69,14 +70,18 @@ class Main extends Component{
         }
       });
   }
-
+_children(photourl) {
+  var selected = this.state.selectedPhoto
+  selected.push(photourl)
+  this.setState({selectedPhoto: selected})
+}
 
   render() {
     return (
       <div className="main">
       <div className="row">
-        <Navigation onAddItem={this._addimage} photos={this.state.images}/>
-        <Canvas/>
+        <Navigation onAddItem={this._addimage} photos={this.state.images} select={this._children}/>
+        <Canvas canvased={this.state.selectedPhoto}/>
       </div>  
       </div>
     );

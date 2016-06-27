@@ -3,13 +3,14 @@ import request from 'superagent';
 
 
 class SideImage extends Component{
+
   render() {
     return(
       <div className="row">
         <div className="col s12 m12">
           <div className="card blue-grey darken-1">
             <div className="card-content white-text">
-              <img src={this.props.url} onClick={() => props.update(props.photo)}  />
+              <img src={this.props.url} onClick ={this._clicked.bind(this)}/>
             </div>
             <div className="card-action">
               <a style={{marginLeft: 15}} className="delete tooltipped" data-position="right" data-delay="50" data-tooltip="Delete" onClick={() => props.delete(props.photo)} href="#"><i className="material-icons">delete</i></a>
@@ -21,15 +22,33 @@ class SideImage extends Component{
       </div>
       )
   }
+  _clicked(e){
+    //console.log(this.props.url)
+    this.props.update(this.props.url)
+  }
 }
+
+
 //es6 component to upload image
 class Nav extends Component {
   constructor() {
     super();
+    this.state = {
+      url: [] 
+    }
+ 
   this._handleUpload = this._handleUpload.bind(this);
   this._displayImages = this._displayImages.bind(this);
+  this._updated = this._updated.bind(this);
   }
 
+_updated(url) {
+  var selected = this.state.url;
+  selected.push(url);
+  this.setState({url: selected});
+  console.log(url)
+  
+}
    
   _displayImages() {
   return (this.props.photos.map((image) => {
@@ -38,19 +57,24 @@ class Nav extends Component {
           url={image.image}
           photo={image}
           body={image.image}
+          update={this._updated}
           date_created={image.date_created}
           date_updated={image.date_updated}
         />)}))}
 
+
   _handleUpload(event) {
     let files = document.getElementById('file_upload').files;
     let formData = new FormData();
+    console.log()
     for (var key in files) {
       formData.append('image', files[key])
     }
     this.props.onAddItem(formData)
   }
-
+  _handleprop(e){
+    this.props.select()
+  } 
   render() {
     const sideImages = this._displayImages()
     return (   
@@ -68,7 +92,8 @@ class Nav extends Component {
       <div className = "file-path-wrapper" >
       <input className = "file-path validate"  type = "text" />
       
-      </div> < /div > < /form>
+      </div> < /div > 
+      < /form>
       {sideImages}
       < /div > < /div> 
     );
