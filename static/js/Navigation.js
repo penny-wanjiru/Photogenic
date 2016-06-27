@@ -4,13 +4,18 @@ import request from 'superagent';
 
 class SideImage extends Component{
 
+
+  _clicked(e){
+    //console.log(this.props.url)
+    this.props.onImageClick(this.props.url)
+  }
   render() {
     return(
       <div className="row">
         <div className="col s12 m12">
           <div className="card blue-grey darken-1">
             <div className="card-content white-text">
-              <img src={this.props.url} onClick ={this._clicked.bind(this)}/>
+              <img src={this.props.url} onClick={this._clicked.bind(this)}/>
             </div>
             <div className="card-action">
               <a style={{marginLeft: 15}} className="delete tooltipped" data-position="right" data-delay="50" data-tooltip="Delete" onClick={() => props.delete(props.photo)} href="#"><i className="material-icons">delete</i></a>
@@ -21,10 +26,6 @@ class SideImage extends Component{
         </div>
       </div>
       )
-  }
-  _clicked(e){
-    //console.log(this.props.url)
-    this.props.update(this.props.url)
   }
 }
 
@@ -57,6 +58,7 @@ _updated(url) {
           url={image.image}
           photo={image}
           body={image.image}
+          onImageClick={this.props.onImageClick}
           update={this._updated}
           date_created={image.date_created}
           date_updated={image.date_updated}

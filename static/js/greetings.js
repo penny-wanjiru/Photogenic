@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import Navigation from "./Navigation.js"
+import Nav from "./Navigation.js"
 import Canvas from "./Canvas.js"
 import request from 'superagent'
 // import main from "./main.js"
@@ -9,9 +9,11 @@ class Main extends Component{
     super();
     this.state = {
       images: [],
-      selectedPhoto:[]
+      selectedPhoto:[],
+      url:''
     }
   this._addimage = this._addimage.bind(this);
+  this._updateView = this._updateView.bind(this);
   }
 
   componentDidMount() {
@@ -76,12 +78,22 @@ _children(photourl) {
   this.setState({selectedPhoto: selected})
 }
 
+_updateView(url){
+ if (url !== '') {
+  this.setState({
+    url
+  })
+ } 
+
+
+}
+
   render() {
     return (
       <div className="main">
       <div className="row">
-        <Navigation onAddItem={this._addimage} photos={this.state.images} select={this._children}/>
-        <Canvas canvased={this.state.selectedPhoto}/>
+        <Nav onAddItem={this._addimage} photos={this.state.images} select={this._children} onImageClick={this._updateView}/>
+        <Canvas canvased={this.state.selectedPhoto} url={this.state.url}/>
       </div>  
       </div>
     );

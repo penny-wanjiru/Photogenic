@@ -10,7 +10,7 @@ class Maincanvas extends Component{
 
                     <form action="#">
                       <div className="file-field input-field">
-                       
+                       <img src={this.props.url}/> 
                       </div>
                     </form>
 

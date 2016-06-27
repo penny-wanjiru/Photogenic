@@ -7,14 +7,14 @@ class Canvas extends Component{
  _handleprop(e){
     this.props.select()
   }
-  
+
   render() {
     return ( 
         <div className="col m9 canvas">
           <div className="col m12">
                 <form action="#">
                   <div className="file-field input-field">
-                  <Maincanvas/>
+                  <Maincanvas url={this.props.url}/>
                   <Filters/>  
                   </div>
                 </form>
