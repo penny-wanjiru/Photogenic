@@ -61,7 +61,6 @@ class Nav extends Component {
   _handleUpload(event) {
     let files = document.getElementById('file_upload').files;
     let formData = new FormData();
-    console.log()
     for (var key in files) {
       formData.append('image', files[key])
     }
@@ -76,7 +75,8 @@ class Nav extends Component {
       <ul className = "tabs" >
       <li className = "tab select col s6 active"> <a href = "#" > IMAGES </a></li >
       </ul>   
-      <div className = "side col s12 m12" > < form action = "#">
+      <div className = "side col s12 m12" > 
+      < form action = "#">
       <div className = "file-field input-field">
       <div className = "btn" >
       <span> Upload </span> 

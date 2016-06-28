@@ -43,6 +43,16 @@ class Main extends Component{
         });
   }
 
+  _editimages{
+    request
+      .put('/api/images/${image.id}/edited')
+
+
+
+
+
+  }
+
   _getimages() {
     request
       .get('/api/images/')

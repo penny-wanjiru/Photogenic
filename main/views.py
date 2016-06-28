@@ -10,7 +10,7 @@ from django.views.generic import TemplateView
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.authentication import BasicAuthentication
 
-from models import Image
+from models import Image, FilteredImage
 
 
 class login_view(TemplateView):
@@ -39,6 +39,22 @@ class ImageListCreateView(ListCreateAPIView):
     def get_queryset(self):
         """Get the user's images"""
         return Image.objects.all()
+
+    def perform_create(self, serializer):
+        serializer.save()
+
+
+class FilteredCreateView(ListCreateAPIView):
+    """Handle the URL to list all images"""
+    queryset = FilteredImage.objects.all()
+    serializer_class = FilteredImgSerializer
+    # authentication_classes = [BasicAuthentication]
+    # permission_classes = [IsAuthenticated]
+
+    def get_queryset(self):
+        """"Return previews as per original photo id."""
+        pk = self.kwargs.get('pk')
+        return FilteredImage.objects.filter(originalimage=pk)
 
     def perform_create(self, serializer):
         serializer.save()
