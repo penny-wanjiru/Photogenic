@@ -3,7 +3,7 @@ import Nav from "./Navigation.js"
 import Canvas from "./Canvas.js"
 import request from 'superagent'
 // import main from "./main.js"
-import FlatButton from 'material-ui/lib/flat-button';
+
  //es6
 class Main extends Component{
   constructor() {
@@ -43,9 +43,9 @@ class Main extends Component{
         });
   }
 
-  _editimages{
+  _editesimages() {
     request
-      .put('/api/images/${image.id}/edited')
+      .get('/api/images/${image.id}/edited')
 
 
 
@@ -68,8 +68,7 @@ class Main extends Component{
         }
       });
   }
-  _deleteImage() {
-    
+  _deleteImage() {  
     this.setState({ images });
     request
       .delete('/api/images/${image.id}/')

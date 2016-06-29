@@ -20,4 +20,4 @@ class FilteredImgSerializer(serializers.ModelSerializer):
     class Meta:
         model = FilteredImage
         fields = ('id','image', 'date_created', 'date_updated',)
-        read_only_fields = ('id', 'date_created', 'date_updated', )        
+        read_only_fields = ('id', 'date_created', 'date_updated', )

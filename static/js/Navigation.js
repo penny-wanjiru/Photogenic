@@ -17,12 +17,6 @@ class SideImage extends Component{
               <img src={this.props.url} onClick={this._clicked.bind(this)}/>
             </div>
             <div className="card-action">
-              <IconButton
-                          touch={true}
-                          tooltip="delete"
-                          tooltipPosition="top-center"
-                          onTouchTap={this.handleDeleteDialog}
-                          ><Delete color={Colors.pinkA200} /></IconButton>
               {this.props.date_created}
               {this.props.date_updated}
             </div>

@@ -1,5 +1,6 @@
 from .serializers import (
     ImageSerializer,
+    FilteredImgSerializer
 )
 from rest_framework.generics import (
     ListCreateAPIView,
