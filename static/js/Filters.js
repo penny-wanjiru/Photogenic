@@ -1,6 +1,9 @@
 import React, {Component} from "react";
 
 class Filtered extends Component{
+  _clicked(e){
+    this.props.onFilterClick(this.props.url)
+  }
 
   render() {
     return(
@@ -9,7 +12,7 @@ class Filtered extends Component{
         <div className="col s12 m3">
           <div className="card blue-grey darken-1">
             <div className="card-content white-text">
-              <img src={this.props.url}/>
+              <img src={this.props.url} onClick={() => this.props.onFilterClick(this.props.url)}/>
             </div>  
           </div>
         </div>
@@ -27,6 +30,7 @@ _displayfilteredImages() {
           key={image.id}
           url={image.image}
           body={image.image}
+          onFilterClick={this.props.onFilterClick}
   
         />)}))}
 

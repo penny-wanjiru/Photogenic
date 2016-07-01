@@ -4,11 +4,9 @@ from PIL import Image, ImageFilter
 
 
 def apply_effect(filter, image):
-    print image
     original = Image.open(image)
     path = settings.MEDIA_ROOT + '/editedphotos/'
     file_path = path + filter + os.path.basename(image.name)
-    print file_path
     if filter == 'blur':
         blurred = original.filter(ImageFilter.BLUR)
         blurred.save(file_path)
