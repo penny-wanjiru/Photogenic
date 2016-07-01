@@ -11,10 +11,12 @@ class Main extends Component{
     this.state = {
       images: [],
       selectedPhoto:[],
-      url:''
+      url:'',
+      filteredImages: []
     }
   this._addimage = this._addimage.bind(this);
   this._updateView = this._updateView.bind(this);
+  this._getfilteredimages = this._getfilteredimages.bind(this);
   }
 
   componentDidMount() {
@@ -43,14 +45,23 @@ class Main extends Component{
         });
   }
 
-  _editesimages() {
+ _getfilteredimages(imageId) {
+  console.log(imageId)
     request
-      .get('/api/images/${image.id}/edited')
-
-
-
-
-
+      .get(`/api/images/${imageId}/edited`)
+      .end((err, result) => {
+        if (result.body) {
+          this.setState({
+            filteredImages: result.body,
+          }, () => {
+            console.log(this.state.filteredImages)
+          });
+        } else {
+          this.setState({
+            filteredImages: [],
+          });
+        }
+      });
   }
 
   _getimages() {
@@ -95,8 +106,8 @@ _updateView(url){
     return (
       <div className="main">
       <div className="row">
-        <Nav onAddItem={this._addimage} photos={this.state.images} onImageClick={this._updateView}/>
-        <Canvas canvased={this.state.selectedPhoto} url={this.state.url}/>
+        <Nav onAddItem={this._addimage} photos={this.state.images} onImageClick={this._updateView} updatefilters={this._getfilteredimages}/>
+        <Canvas canvased={this.state.selectedPhoto} url={this.state.url} filteredImages={this.state.filteredImages} />
       </div>  
       </div>
     );

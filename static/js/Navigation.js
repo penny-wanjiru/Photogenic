@@ -7,6 +7,7 @@ class SideImage extends Component{
 
   _clicked(e){
     this.props.onImageClick(this.props.url)
+    this.props.updatefilters(this.props.id)
   }
   render() {
     return(
@@ -41,11 +42,13 @@ class Nav extends Component {
   _displayImages() {
   return (this.props.photos.map((image) => {
     return(<SideImage
+          id={image.id}
           key={image.id}
           url={image.image}
           photo={image}
           body={image.image}
           onImageClick={this.props.onImageClick}
+          updatefilters={this.props.updatefilters}
           update={this._updated}
           date_created={image.date_created}
           date_updated={image.date_updated}

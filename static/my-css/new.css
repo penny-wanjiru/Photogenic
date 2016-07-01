@@ -63,8 +63,9 @@
 }
 .filters{
     background-color:#33343c;
-    height:25vh;
+    height:35vh;
     margin-top: 20px;
+    overflow: scroll;
 }
 .active {
     background-color:#33343c;

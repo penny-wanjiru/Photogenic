@@ -4,6 +4,7 @@ import Filters from "./Filters.js"
  //es6
 class Canvas extends Component{
 
+
  _handleprop(e){
     this.props.select()
   }
@@ -15,7 +16,7 @@ class Canvas extends Component{
                 <form action="#">
                   <div className="file-field input-field">
                   <Maincanvas url={this.props.url}/>
-                  <Filters/>  
+                  <Filters filteredImages={this.props.filteredImages}/>  
                   </div>
                 </form>
           </div>

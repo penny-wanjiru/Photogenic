@@ -4,7 +4,8 @@ from .serializers import (
 )
 from rest_framework.generics import (
     ListCreateAPIView,
-    RetrieveDestroyAPIView
+    RetrieveDestroyAPIView,
+    RetrieveUpdateAPIView
 )
 from django.shortcuts import render
 from django.views.generic import TemplateView
@@ -57,8 +58,16 @@ class FilteredCreateView(ListCreateAPIView):
         pk = self.kwargs.get('pk')
         return FilteredImage.objects.filter(originalimage=pk)
 
-    def perform_create(self, serializer):
-        serializer.save()
+
+class EditedImageUpdateView(RetrieveUpdateAPIView):
+
+    serializer_class = FilteredImgSerializer
+
+    def get_queryset(self):
+        """Return previews as per original photo id."""
+        parent_id = self.kwargs.get('photo_id')
+        filter_id = self.kwargs.get('pk')
+        return FilteredImage.objects.filter(originalimage=parent_id, pk=filter_id)        
 
 
 class ImageDetailView(RetrieveDestroyAPIView):
