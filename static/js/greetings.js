@@ -26,7 +26,7 @@ class Main extends Component{
   _addimage(formData) {
     let images = this.state.images    
     request
-      .post('/api/images/')
+      .post('/main/images/')
       .send(formData)
       .end(
         (err, result) => {
@@ -48,7 +48,7 @@ class Main extends Component{
  _getfilteredimages(imageId) {
   console.log(imageId)
     request
-      .get(`/api/images/${imageId}/edited`)
+      .get(`/images/${imageId}/edited`)
       .end((err, result) => {
         if (result.body) {
           this.setState({
@@ -66,7 +66,7 @@ class Main extends Component{
 
   _getimages() {
     request
-      .get('/api/images/')
+      .get('/images/')
       .end((err, result) => {
         if (result.body) {
           this.setState({
@@ -82,7 +82,7 @@ class Main extends Component{
   _deleteImage() {  
     this.setState({ images });
     request
-      .delete('/api/images/${image.id}/')
+      .delete('/images/${image.id}/')
       .end((err, result) => {
         if (result.status === 200) {
           this._getimages();

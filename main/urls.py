@@ -6,7 +6,7 @@ from .views import ImageDetailView, ImageListCreateView, FilteredCreateView, Edi
 urlpatterns = [
     url(r'^$', login_view.as_view(), name='index'),
     url(r'^main/$', main_view.as_view(), name='main'),
-    url(r'^images/$', ImageListCreateView.as_view()),
+    url(r'^main/images/$', ImageListCreateView.as_view()),
     url(r'^images/(?P<pk>[0-9]+)/$', ImageDetailView.as_view()),
     url(r'^images/(?P<pk>[0-9]+)/edited$', FilteredCreateView.as_view()),
     url(r'^images/(?P<photo_id>[0-9]+)/edited/(?P<pk>[0-9]+)/$',

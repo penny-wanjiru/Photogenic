@@ -15,11 +15,13 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
+from main.views import login_view
 import settings
 
 urlpatterns = [
+    url(r'^$', login_view.as_view(), name='index'),
     url(r'^admin/', admin.site.urls),
-    url(r'^api/', include('main.urls')),
+    url(r'^', include('main.urls')),
     url(r'^accounts/', include('allauth.urls')),
     url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {
         'document_root': settings.MEDIA_ROOT,

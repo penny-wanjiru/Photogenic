@@ -17,12 +17,12 @@ class Canvas extends Component{
       })
   }
 
- _handleprop(e){
+  _handleprop(e){
     this.props.select()
   }
 
-_onFilterClick(url){
- this.setState({
+  _onFilterClick(url){
+  this.setState({
   filteredurl:url
  })
 

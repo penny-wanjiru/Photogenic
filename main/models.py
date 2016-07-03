@@ -14,7 +14,7 @@ filters = ['blur', 'contour', 'sharpen', 'smooth', 'smooth_more',
 
 class Image(models.Model):
 
-    # uploader = models.ForeignKey(User, related_name="user")
+    uploader = models.ForeignKey(User, related_name="user")
     image = models.ImageField(upload_to='pics/')
     date_created = models.DateTimeField(auto_now_add=True)
     date_updated = models.DateTimeField(auto_now=True)
