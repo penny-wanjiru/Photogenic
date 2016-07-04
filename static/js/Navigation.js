@@ -4,10 +4,13 @@ import request from 'superagent';
 
 class SideImage extends Component{
 
-
   _clicked(e){
     this.props.onImageClick(this.props.url)
     this.props.updatefilters(this.props.id)
+    
+  }
+  _clickdel(e){
+    this.props.deleteimage(this.props.id)
   }
   render() {
     return(
@@ -21,13 +24,13 @@ class SideImage extends Component{
               {this.props.date_created}
               {this.props.date_updated}
             </div>
+            <a style={{marginLeft: 15}} className="delete tooltipped" data-position="right" data-delay="50" data-tooltip="Delete" onClick={this._clickdel.bind(this)} href="#"><i className="material-icons delete-image">delete</i></a>
           </div>
         </div>
       </div>
       )
   }
 }
-
 
 //es6 component to upload image
 class Nav extends Component {
@@ -50,6 +53,7 @@ class Nav extends Component {
           onImageClick={this.props.onImageClick}
           updatefilters={this.props.updatefilters}
           update={this._updated}
+          deleteimage={this.props.deleteimage}
           date_created={image.date_created}
           date_updated={image.date_updated}
         />)}))}

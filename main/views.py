@@ -43,10 +43,10 @@ class ImageListCreateView(ListCreateAPIView):
     @csrf_exempt
     def get_queryset(self):
         """Get the user's images"""
-        return Image.objects.filter(uploader=self.request.user)
+        return Image.objects.filter()
 
     def perform_create(self, serializer):
-        serializer.save()
+        serializer.save(uploader=self.request.user)
 
 
 class FilteredCreateView(ListCreateAPIView):
@@ -79,4 +79,4 @@ class ImageDetailView(RetrieveDestroyAPIView):
     queryset = Image.objects.all()
     serializer_class = ImageSerializer
     permission_classes = [IsAuthenticated]
-    # authentication_classes = [BasicAuthentication]
+    authentication_classes = [CsrfExemptSessionAuthentication]

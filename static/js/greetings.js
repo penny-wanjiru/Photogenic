@@ -10,13 +10,13 @@ class Main extends Component{
     super();
     this.state = {
       images: [],
-      selectedPhoto:[],
       url:'',
       filteredImages: []
     }
   this._addimage = this._addimage.bind(this);
   this._updateView = this._updateView.bind(this);
   this._getfilteredimages = this._getfilteredimages.bind(this);
+  this._deleteImage = this. _deleteImage.bind(this);
   }
 
   componentDidMount() {
@@ -66,7 +66,7 @@ class Main extends Component{
 
   _getimages() {
     request
-      .get('/images/')
+      .get('/main/images/')
       .end((err, result) => {
         if (result.body) {
           this.setState({
@@ -79,10 +79,9 @@ class Main extends Component{
         }
       });
   }
-  _deleteImage() {  
-    this.setState({ images });
+  _deleteImage(imageId) {  
     request
-      .delete('/images/${image.id}/')
+      .delete(`/images/${imageId}/`)
       .end((err, result) => {
         if (result.status === 200) {
           this._getimages();
@@ -101,13 +100,16 @@ _updateView(url){
   })
  } 
 }
+_onDeletePreview(){
+    this.setState({url: undefined})
+  }
 
   render() {
     return (
       <div className="main">
       <div className="row">
-        <Nav onAddItem={this._addimage} photos={this.state.images} onImageClick={this._updateView} updatefilters={this._getfilteredimages}/>
-        <Canvas canvased={this.state.selectedPhoto} url={this.state.url} filteredImages={this.state.filteredImages} />
+        <Nav onAddItem={this._addimage} photos={this.state.images} onImageClick={this._updateView} updatefilters={this._getfilteredimages} deleteimage={this._deleteImage}/>
+        <Canvas clearCanvas={this._onDeletePreview} url={this.state.url} filteredImages={this.state.filteredImages} />
       </div>  
       </div>
     );

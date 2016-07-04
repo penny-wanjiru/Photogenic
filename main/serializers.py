@@ -1,6 +1,15 @@
 from rest_framework import serializers
 
-from models import Image, FilteredImage 
+from django.contrib.auth.models import User
+
+from models import Image, FilteredImage
+
+
+class UserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+
+        fields = ('id', 'first_name', 'email')
 
 
 class FilteredImgSerializer(serializers.ModelSerializer):
@@ -10,7 +19,7 @@ class FilteredImgSerializer(serializers.ModelSerializer):
     class Meta:
         model = FilteredImage
         fields = ('id', 'image', 'date_created', 'date_updated')
-        read_only_fields = ('id', 'date_created', 'date_updated' )
+        read_only_fields = ('id', 'date_created', 'date_updated')
 
 
 class ImageSerializer(serializers.ModelSerializer):
@@ -20,5 +29,3 @@ class ImageSerializer(serializers.ModelSerializer):
         model = Image
         fields = ('id', 'image', 'date_created', 'date_updated')
         read_only_fields = ('id', 'date_created', 'date_updated')
-
-
