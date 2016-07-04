@@ -1,0 +1,1 @@
+web: python manage.py migrate; gunicorn photogenic.wsgi --pythonpath=photogenic --log-file -
