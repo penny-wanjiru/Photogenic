@@ -83,7 +83,7 @@ class Main extends Component{
     request
       .delete(`/images/${imageId}/`)
       .end((err, result) => {
-        if (result.status === 200) {
+        if (result.status === 204) {
           this._getimages();
         } else {
           this.setState({
