@@ -20421,17 +20421,21 @@
 
 	      console.log(imageId);
 	      _superagent2.default.get("/images/" + imageId + "/edited").end(function (err, result) {
-	        if (result.body) {
+	        if (err) {
+	          console.log(err);
+	        }
+	        if (result) {
 	          _this3.setState({
 	            filteredImages: result.body
-	          }, function () {
-	            console.log(_this3.state.filteredImages);
-	          });
-	        } else {
-	          _this3.setState({
-	            filteredImages: []
 	          });
 	        }
+
+	        console.log(_this3.state.filteredImages);
+
+	        // } else {
+	        //   this.setState({
+	        //     filteredImages: [],
+	        //   });
 	      });
 	    }
 	  }, {
@@ -20440,7 +20444,7 @@
 	      var _this4 = this;
 
 	      _superagent2.default.get('/main/images/').end(function (err, result) {
-	        if (result.body) {
+	        if (result) {
 	          _this4.setState({
 	            images: result.body
 	          });

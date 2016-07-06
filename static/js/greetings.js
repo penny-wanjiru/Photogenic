@@ -49,18 +49,23 @@ class Main extends Component{
   console.log(imageId)
     request
       .get(`/images/${imageId}/edited`)
-      .end((err, result) => {
-        if (result.body) {
+      .end((err, result) => {  
+        if (err) {
+          console.log(err)
+        }
+        if (result) {
           this.setState({
             filteredImages: result.body,
-          }, () => {
-            console.log(this.state.filteredImages)
-          });
-        } else {
-          this.setState({
-            filteredImages: [],
-          });
+          })
         }
+
+        console.log(this.state.filteredImages)
+    
+        // } else {
+        //   this.setState({
+        //     filteredImages: [],
+        //   });
+        
       });
   }
 
@@ -68,7 +73,7 @@ class Main extends Component{
     request
       .get('/main/images/')
       .end((err, result) => {
-        if (result.body) {
+        if (result) {
           this.setState({
             images: result.body,
           });
