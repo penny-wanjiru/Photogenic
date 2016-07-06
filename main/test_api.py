@@ -6,12 +6,11 @@ import os
 class MainAPITestCase(APITestCase):
     """defines tests for the api
     """
-    def setUp(self):
-        self.client = APIClient()
-        self.user = User.objects.create(
-            username='pennyuser',
-            password='password')
-   
+    # def setUp(self):
+    #     self.client = APIClient()
+    #     self.user = User.objects.create(
+    #         username='pennyuser',
+    #         password='password')
 
     def test_api_get_images(self):
         """test for getting images
@@ -20,4 +19,3 @@ class MainAPITestCase(APITestCase):
         response = self.client.get('/main/images/')
         self.assertEqual(response.status_code, 200)
 
-    

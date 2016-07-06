@@ -110,6 +110,7 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
+DATE_FORMAT = "Y-m-d"
 # Internationalization
 # https://docs.djangoproject.com/en/1.9/topics/i18n/
 
@@ -119,7 +120,7 @@ TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
-USE_L10N = True
+USE_L10N = False
 
 USE_TZ = True
 
@@ -140,6 +141,12 @@ AUTHENTICATION_BACKENDS = (
 SITE_ID = 1
 
 LOGIN_REDIRECT_URL = '/main/'
+ACCOUNT_LOGOUT_ON_GET = True
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = 'media'
+
+
+
+
+DATE_INPUT_FORMATS = ('%d-%m-%Y','%Y-%m-%d')

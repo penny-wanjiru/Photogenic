@@ -6,18 +6,15 @@ class Filtered extends Component{
   }
 
   render() {
-    return(
-
-      
+    return( 
         <div className="col s12 m3">
           <div className="card blue-grey darken-1">
             <div className="card-content white-text">
               <img src={this.props.url} onClick={() => this.props.onFilterClick(this.props.url)}/>
+               <p className="effect_name">{this.props.filterName}</p>
             </div>  
           </div>
-        </div>
-  
-        
+        </div>     
       )
   }
 }
@@ -25,11 +22,15 @@ class Filtered extends Component{
 class Filters extends Component{
 
 _displayfilteredImages() {
+  const filters = ['find_edges', 'edge_enhance_more', 'edge_enhance', 'detail', 'emboss', 
+                    'smooth_more', 'smooth', 'sharpen', 'contour', 'blur']
   return (this.props.filteredImages.map((image) => {
     return(<Filtered
+
           key={image.id}
           url={image.image}
           body={image.image}
+          filterName={filters[this.props.filteredImages.indexOf(image)]}
           onFilterClick={this.props.onFilterClick}
   
         />)}))}

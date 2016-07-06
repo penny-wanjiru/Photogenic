@@ -37,7 +37,7 @@ class Main extends Component{
           } else {
             window.Materialize.toast('Your image has been uploaded', 2000);
             this.setState({
-              images: images.concat([result.body])
+              images: [result.body, ...this.state.images]
             })
             console.log(images)
             

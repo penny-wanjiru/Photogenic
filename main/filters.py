@@ -8,7 +8,7 @@ def apply_effect(filter, image):
     path = settings.MEDIA_ROOT + '/editedphotos/'
     if not os.path.exists(path):
             os.makedirs(path)
-    file_path = path + filter + os.path.basename(image.name)
+    file_path = path + filter + '-' + os.path.basename(image.name)
     if filter == 'blur':
         blurred = original.filter(ImageFilter.BLUR)
         blurred.save(file_path)

@@ -21,10 +21,9 @@ class SideImage extends Component{
               <img src={this.props.url} onClick={this._clicked.bind(this)}/>
             </div>
             <div className="card-action">
-              {this.props.date_created}
-              {this.props.date_updated}
-            </div>
-            <a style={{marginLeft: 15}} className="delete tooltipped" data-position="right" data-delay="50" data-tooltip="Delete" onClick={this._clickdel.bind(this)} href="#"><i className="material-icons delete-image">delete</i></a>
+              Uploaded: {this.props.date_created}
+            <a style={{marginLeft: 20}} className="delete tooltipped" data-position="right" onClick={this._clickdel.bind(this)} href="#"><i className="material-icons delete-image">delete</i></a>
+             </div>
           </div>
         </div>
       </div>
@@ -74,7 +73,7 @@ class Nav extends Component {
       
       <div className = "col m3 sidebar">
       <ul className = "tabs" >
-      <li className = "tab select col s6 active"> <a href = "#" > IMAGES </a></li >
+      <li className = "tab select col s6 active" style={{color:'white'}}> <a href = "#" > IMAGES </a></li >
       </ul>   
       <div className = "side col s12 m12" > 
       < form action = "#">

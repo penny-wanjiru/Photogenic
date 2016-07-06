@@ -20360,6 +20360,8 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+	function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -20408,7 +20410,7 @@
 	        } else {
 	          window.Materialize.toast('Your image has been uploaded', 2000);
 	          _this2.setState({
-	            images: images.concat([result.body])
+	            images: [result.body].concat(_toConsumableArray(_this2.state.images))
 	          });
 	          console.log(images);
 	        }
@@ -20586,16 +20588,16 @@
 	            _react2.default.createElement(
 	              "div",
 	              { className: "card-action" },
+	              "Uploaded: ",
 	              this.props.date_created,
-	              this.props.date_updated
-	            ),
-	            _react2.default.createElement(
-	              "a",
-	              { style: { marginLeft: 15 }, className: "delete tooltipped", "data-position": "right", "data-delay": "50", "data-tooltip": "Delete", onClick: this._clickdel.bind(this), href: "#" },
 	              _react2.default.createElement(
-	                "i",
-	                { className: "material-icons delete-image" },
-	                "delete"
+	                "a",
+	                { style: { marginLeft: 20 }, className: "delete tooltipped", "data-position": "right", onClick: this._clickdel.bind(this), href: "#" },
+	                _react2.default.createElement(
+	                  "i",
+	                  { className: "material-icons delete-image" },
+	                  "delete"
+	                )
 	              )
 	            )
 	          )
@@ -20667,7 +20669,7 @@
 	          { className: "tabs" },
 	          _react2.default.createElement(
 	            "li",
-	            { className: "tab select col s6 active" },
+	            { className: "tab select col s6 active", style: { color: 'white' } },
 	            " ",
 	            _react2.default.createElement(
 	              "a",
@@ -22473,15 +22475,20 @@
 	                _react2.default.createElement("img", { src: this.props.url, id: "maincanvas" }),
 	                _react2.default.createElement(
 	                  "a",
-	                  { href: this.props.url, style: { marginTop: 15, marginLeft: 20 }, className: "btn", download: true },
+	                  { href: this.props.url, style: { marginTop: 15, marginLeft: 160 }, className: "btn", download: true },
 	                  _react2.default.createElement("i", { className: "material-icons left" }),
 	                  "Download"
 	                ),
 	                _react2.default.createElement(
 	                  "a",
-	                  { style: { marginTop: 15, marginLeft: 20 }, className: "btn", onClick: this._fbshare.bind(this) },
+	                  { style: { marginTop: 15, marginLeft: 20, backgroundColor: '#3B5998' }, className: "btn", onClick: this._fbshare.bind(this) },
 	                  _react2.default.createElement("i", { className: "material-icons left" }),
 	                  "Share on facebook"
+	                ),
+	                _react2.default.createElement(
+	                  "a",
+	                  { href: "/accounts/logout", style: { marginTop: 15, marginLeft: 20 }, className: "btn" },
+	                  "Logout"
 	                )
 	              )
 	            )
@@ -22551,7 +22558,12 @@
 	            { className: "card-content white-text" },
 	            _react2.default.createElement("img", { src: this.props.url, onClick: function onClick() {
 	                return _this2.props.onFilterClick(_this2.props.url);
-	              } })
+	              } }),
+	            _react2.default.createElement(
+	              "p",
+	              { className: "effect_name" },
+	              this.props.filterName
+	            )
 	          )
 	        )
 	      );
@@ -22577,11 +22589,14 @@
 	    value: function _displayfilteredImages() {
 	      var _this4 = this;
 
+	      var filters = ['find_edges', 'edge_enhance_more', 'edge_enhance', 'detail', 'emboss', 'smooth_more', 'smooth', 'sharpen', 'contour', 'blur'];
 	      return this.props.filteredImages.map(function (image) {
 	        return _react2.default.createElement(Filtered, {
+
 	          key: image.id,
 	          url: image.image,
 	          body: image.image,
+	          filterName: filters[_this4.props.filteredImages.indexOf(image)],
 	          onFilterClick: _this4.props.onFilterClick
 
 	        });

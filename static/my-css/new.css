@@ -48,7 +48,7 @@
     overflow: hidden;
 }
 .sidebar {
-    background-color:#33343c;
+    background-color:#2E2E2E;
     height: 100vh;
 
 }
@@ -58,17 +58,17 @@
     
 }
 .maincanvas {
-    background-color:#33343c;
-    height: 75vh;
+    background-color: #2E2E2E;
+    height: 65vh;
 }
 .filters{
-    background-color:#33343c;
+    background-color:#2E2E2E;
     height:35vh;
     margin-top: 20px;
     overflow: scroll;
 }
 .active {
-    background-color:#33343c;
+    background-color:#2E2E2E;
 }
 .tabs .tab a {
     color:white;
@@ -87,6 +87,9 @@
 } 
 #maincanvas{
     width: 100%;
-    height: 60vh;
+    height: 50vh;
     object-fit: contain;
 }
+.delete-image{
+    color: #ADD8E6;
+}    

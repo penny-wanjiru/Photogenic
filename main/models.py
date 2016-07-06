@@ -16,16 +16,16 @@ class Image(models.Model):
 
     uploader = models.ForeignKey(User, related_name="user")
     image = models.ImageField(upload_to='pics/')
-    date_created = models.DateTimeField(auto_now_add=True)
-    date_updated = models.DateTimeField(auto_now=True)
+    date_created = models.DateField(auto_now_add=True)
+    date_updated = models.DateField(auto_now=True)
 
 
 class FilteredImage(models.Model):
     """Base model for photos that have been edited and the preview."""
 
-    image = models.ImageField(upload_to='media/editedphotos')
-    date_created = models.DateTimeField(auto_now_add=True)
-    date_updated = models.DateTimeField(auto_now=True)
+    image = models.ImageField(upload_to='editedphotos')
+    date_created = models.DateField(auto_now_add=True)
+    date_updated = models.DateField(auto_now=True)
     originalimage = models.ForeignKey(Image, related_name="filters")
 
 
