@@ -23,7 +23,7 @@ class Image(models.Model):
 class FilteredImage(models.Model):
     """Base model for photos that have been edited and the preview."""
 
-    image = models.ImageField()
+    image = models.ImageField(upload_to='media/editedphotos')
     date_created = models.DateTimeField(auto_now_add=True)
     date_updated = models.DateTimeField(auto_now=True)
     originalimage = models.ForeignKey(Image, related_name="filters")
