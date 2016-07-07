@@ -14,7 +14,7 @@ from rest_framework.authentication import BasicAuthentication
 from django.views.decorators.csrf import csrf_exempt
 
 from restriction import CsrfExemptSessionAuthentication
-from models import Image, FilteredImage
+from models import Images, FilteredImage
 
 
 class login_view(TemplateView):
@@ -35,15 +35,15 @@ class main_view(TemplateView):
 
 class ImageListCreateView(ListCreateAPIView):
     """Handle the URL to list all images"""
-    queryset = Image.objects.all()
+    queryset = Images.objects.all()
     serializer_class = ImageSerializer
     authentication_classes = [CsrfExemptSessionAuthentication]
-    permission_classes = [IsAuthenticated]
+    # permission_classes = [IsAuthenticated]
 
     @csrf_exempt
     def get_queryset(self):
         """Get the user's images"""
-        return Image.objects.filter()
+        return Images.objects.filter()
 
     def perform_create(self, serializer):
         serializer.save(uploader=self.request.user)
@@ -54,7 +54,7 @@ class FilteredCreateView(ListCreateAPIView):
     queryset = FilteredImage.objects.all()
     serializer_class = FilteredImgSerializer
     # authentication_classes = [BasicAuthentication]
-    permission_classes = [IsAuthenticated]
+    # permission_classes = [IsAuthenticated]
 
     def get_queryset(self):
         """"Return previews as per original photo id."""
@@ -76,7 +76,7 @@ class EditedImageUpdateView(RetrieveUpdateAPIView):
 class ImageDetailView(RetrieveDestroyAPIView):
     """Handle the URL to list one image"""
 
-    queryset = Image.objects.all()
+    queryset = Images.objects.all()
     serializer_class = ImageSerializer
-    permission_classes = [IsAuthenticated]
+    # permission_classes = [IsAuthenticated]
     authentication_classes = [CsrfExemptSessionAuthentication]

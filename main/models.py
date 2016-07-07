@@ -12,7 +12,7 @@ filters = ['blur', 'contour', 'sharpen', 'smooth', 'smooth_more',
            'edge_enhance_more', 'find_edges']
 
 
-class Image(models.Model):
+class Images(models.Model):
 
     uploader = models.ForeignKey(User, related_name="user")
     image = models.ImageField(upload_to='pics/')
@@ -26,10 +26,10 @@ class FilteredImage(models.Model):
     image = models.ImageField(upload_to='editedphotos')
     date_created = models.DateField(auto_now_add=True)
     date_updated = models.DateField(auto_now=True)
-    originalimage = models.ForeignKey(Image, related_name="filters")
+    originalimage = models.ForeignKey(Images, related_name="filters")
 
 
-@receiver(post_save, sender=Image)
+@receiver(post_save, sender=Images)
 def main_effect(sender, instance, **kwargs):
     image = instance.image
     for filter in filters:

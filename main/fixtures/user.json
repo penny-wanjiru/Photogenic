@@ -1,0 +1,20 @@
+[
+    {
+        "model":"auth.user",
+        "pk":2, 
+        "fields":{
+                "password":"pbkdf2_sha256$24000$p2xJIFhRukFy$DUpljYlEBgjMjXmwH+eve+Fvz/ULCrvtU4znGHS00RY=",
+                "last_login":"2016-07-05T10:11:47.059Z",
+                "is_superuser":true,
+                "username":"administrator",
+                "first_name":"",
+                "last_name":"",
+                "email":"penina@gmail.com",
+                "is_staff":true,
+                "is_active":true,
+                "date_joined":"2016-07-03T18:45:05.462Z",
+                "groups": [],
+                "user_permissions": []
+                }   
+    }
+]    

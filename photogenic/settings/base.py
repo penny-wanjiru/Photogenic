@@ -145,8 +145,3 @@ ACCOUNT_LOGOUT_ON_GET = True
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = 'media'
-
-
-
-
-DATE_INPUT_FORMATS = ('%d-%m-%Y','%Y-%m-%d')
