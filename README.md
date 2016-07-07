@@ -10,7 +10,7 @@
 
     Pillow - Python Image Manipulation Library
 ###Frontend dependencies:
-
+ 
     Materialize CSS - The front end framework from which all the elements and controls on the front end have been created.
 
     React - React makes it painless to create interactive UIs.
