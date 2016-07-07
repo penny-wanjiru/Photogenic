@@ -17,6 +17,7 @@ before_script:
 
 script:
   - coverage run manage.py test photogenic/main--noinput --settings=photogenic.settings.test
+  
 branches:
   only:
   - develop
