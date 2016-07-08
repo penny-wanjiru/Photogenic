@@ -1,8 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom"
-import Greeting from "./greetings";
+import Main from "./mainjs";
 
 ReactDOM.render(
-  <Greeting/>,
+  <Main/>,
   document.getElementById('content')
 );

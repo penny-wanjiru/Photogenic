@@ -22,11 +22,11 @@ class Canvas extends Component{
   }
 
   _onFilterClick(url){
-  this.setState({
-  filteredurl:url
- })
+    this.setState({
+    filteredurl:url
+    })
+  }
 
-}
   render() {
     return ( 
         <div className="col m9 canvas">
@@ -38,9 +38,7 @@ class Canvas extends Component{
                   </div>
                 </form>
           </div>
-        </div>
-    
-            
+        </div>         
     );
   }
 };

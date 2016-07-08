@@ -2,9 +2,8 @@ import React, {Component} from "react";
 import Nav from "./Navigation.js"
 import Canvas from "./Canvas.js"
 import request from 'superagent'
-// import main from "./main.js"
 
- //es6
+
 class Main extends Component{
   constructor() {
     super();
@@ -31,22 +30,18 @@ class Main extends Component{
       .end(
         (err, result) => {
           if (err) {
-           console.log('error: ', err)
-           window.Materialize.toast('Oops there seems to be a problem uploading!', 2000);
-
+            window.Materialize.toast('Oops there seems to be a problem uploading!', 2000);
           } else {
             window.Materialize.toast('Your image has been uploaded', 2000);
             this.setState({
               images: [result.body, ...this.state.images]
             })
-            console.log(images)
-            
           }
-        });
+        }
+      );
   }
 
- _getfilteredimages(imageId) {
-  console.log(imageId)
+  _getfilteredimages(imageId) {
     request
       .get(`/images/${imageId}/edited`)
       .end((err, result) => {  
@@ -58,14 +53,6 @@ class Main extends Component{
             filteredImages: result.body,
           })
         }
-
-        console.log(this.state.filteredImages)
-    
-        // } else {
-        //   this.setState({
-        //     filteredImages: [],
-        //   });
-        
       });
   }
 
@@ -84,6 +71,7 @@ class Main extends Component{
         }
       });
   }
+
   _deleteImage(imageId) {  
     request
       .delete(`/images/${imageId}/`)
@@ -98,38 +86,27 @@ class Main extends Component{
       });
   }
 
-_updateView(url){
- if (url !== '') {
-  this.setState({
-    url
-  })
- } 
-}
-_onDeletePreview(){
+  _updateView(url){
+    if (url !== '') {
+      this.setState({
+        url
+      })
+    } 
+  }
+
+  _onDeletePreview(){
     this.setState({url: undefined})
   }
 
   render() {
     return (
       <div className="main">
-      <div className="row">
-        <Nav onAddItem={this._addimage} photos={this.state.images} onImageClick={this._updateView} updatefilters={this._getfilteredimages} deleteimage={this._deleteImage}/>
-        <Canvas clearCanvas={this._onDeletePreview} url={this.state.url} filteredImages={this.state.filteredImages} />
-      </div>  
+        <div className="row">
+          <Nav onAddItem={this._addimage} photos={this.state.images} onImageClick={this._updateView} updatefilters={this._getfilteredimages} deleteimage={this._deleteImage}/>
+          <Canvas clearCanvas={this._onDeletePreview} url={this.state.url} filteredImages={this.state.filteredImages} />
+        </div>  
       </div>
     );
   }
 };
 export default Main
-
- //es5
- /*
-var Hello = React.createClass({
-    render: function() {
-        return (
-            <div>Hello</div>
-        )
-    }
-})
-module.exports = Hello
-*/

@@ -9,9 +9,11 @@ class SideImage extends Component{
     this.props.updatefilters(this.props.id)
     
   }
+
   _clickdel(e){
     this.props.deleteimage(this.props.id)
   }
+
   render() {
     return(
       <div className="row">
@@ -31,19 +33,17 @@ class SideImage extends Component{
   }
 }
 
-//es6 component to upload image
 class Nav extends Component {
   constructor() {
-    super();
+  super();
   this._handleUpload = this._handleUpload.bind(this);
-  this._displayImages = this._displayImages.bind(this);
-  
+  this._displayImages = this._displayImages.bind(this);  
   }
-
-   
+ 
   _displayImages() {
-  return (this.props.photos.map((image) => {
-    return(<SideImage
+    return (this.props.photos.map((image) => {
+      return(
+        <SideImage
           id={image.id}
           key={image.id}
           url={image.image}
@@ -55,8 +55,10 @@ class Nav extends Component {
           deleteimage={this.props.deleteimage}
           date_created={image.date_created}
           date_updated={image.date_updated}
-        />)}))}
-
+        />
+      )
+    }))
+  }
 
   _handleUpload(event) {
     let files = document.getElementById('file_upload').files;
@@ -70,27 +72,26 @@ class Nav extends Component {
   render() {
     const sideImages = this._displayImages()
     return (   
-      
       <div className = "col m3 sidebar">
-      <ul className = "tabs" >
-      <li className = "tab select col s6 active" style={{color:'white'}}> <a href = "#" > IMAGES </a></li >
-      </ul>   
-      <div className = "side col s12 m12" > 
-      < form action = "#">
-      <div className = "file-field input-field">
-      <div className = "btn" >
-      <span> Upload </span> 
-      <input type = "file" id = "file_upload" onChange = { this._handleUpload} />
+        <ul className = "tabs" >
+          <li className = "tab select col s6 active" style={{color:'white'}}> <a href = "#" > IMAGES </a></li>
+        </ul>   
+        <div className = "side col s12 m12" > 
+          <form action = "#">
+            <div className = "file-field input-field">
+              <div className = "btn" >
+                <span> Upload </span> 
+                <input type = "file" id = "file_upload" onChange = { this._handleUpload} />
+              </div> 
+              <div className = "file-path-wrapper" >
+                <input className = "file-path validate"  type = "text" /> 
+              </div>
+            </div> 
+          </form>
+          {sideImages}
+        </div> 
       </div> 
-      <div className = "file-path-wrapper" >
-      <input className = "file-path validate"  type = "text" />
-      
-      </div> < /div > 
-      < /form>
-      {sideImages}
-      < /div > < /div> 
     );
   }
 };
-
 export default Nav
