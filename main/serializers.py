@@ -6,6 +6,7 @@ from models import Images, FilteredImage
 
 
 class UserSerializer(serializers.ModelSerializer):
+    """User serializer fields."""
     class Meta:
         model = User
 
@@ -14,7 +15,6 @@ class UserSerializer(serializers.ModelSerializer):
 
 class FilteredImgSerializer(serializers.ModelSerializer):
     """Image serializer fields for edited image."""
-    # image = serializers.ImageField(use_url=True)
 
     class Meta:
         model = FilteredImage

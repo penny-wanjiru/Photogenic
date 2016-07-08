@@ -13,6 +13,7 @@ filters = ['blur', 'contour', 'sharpen', 'smooth', 'smooth_more',
 
 
 class Images(models.Model):
+    """Model for images that have been uploaded"""
 
     uploader = models.ForeignKey(User, related_name="user")
     image = models.ImageField(upload_to='pics/')
@@ -31,6 +32,7 @@ class FilteredImage(models.Model):
 
 @receiver(post_save, sender=Images)
 def main_effect(sender, instance, **kwargs):
+    """Method for applying filters"""
     image = instance.image
     for filter in filters:
         applied = apply_effect(filter, image)

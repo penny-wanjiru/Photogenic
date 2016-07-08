@@ -18,7 +18,6 @@ class Filtered extends Component{
       )
   }
 }
- //es6
 class Filters extends Component{
 
 _displayfilteredImages() {

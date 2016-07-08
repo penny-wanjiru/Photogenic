@@ -1,95 +1,94 @@
-/*body{  
-
-    background-image: url('/static/img/photogenic.jpg'), linear-gradient(#3d72b4, #525252);
-    background-color: rgba(0, 0, 0, 0.60);
-    background-blend-mode: overlay;
-    background-size: cover;
-    height:100%;
-
-    /*overflow:hidden;
-  }
-  */
-#photgenic-img{
-  width:500px;
-  height:350px;
-
+#photgenic-img {
+  width: 500px;
+  height: 350px;
 }
 
 .buttons {
-    cursor: default;
-    padding: 0;
-    letter-spacing: 0;
+  cursor: default;
+  padding: 0;
+  letter-spacing: 0;
 }
 
 .buttons li a {
-    display: block;
-    text-decoration: none;
-    text-align: center;
-    word-break: break-all;
+  display: block;
+  text-decoration: none;
+  text-align: center;
+  word-break: break-all;
 }
 
 #buttons01 .n01 {
-    color: #FFFFFF;
-    border: solid 1px #FFFFFF;
+  color: #FFFFFF;
+  border: solid 1px #FFFFFF;
 }
-#buttons01 li a {
-    min-width: 13.75rem;
-    height: 3.125rem;
-    line-height: 3.125rem;
-    padding: 0 1.5625rem;
-    font-size: 0.625em;
-    font-family: 'Montserrat';
-    letter-spacing: 0.3rem;
-    padding-left: calc(0.3rem + 1.5625rem);
-    font-weight: 400;
-    border-radius: 0.375rem;
-}
-.main{
-    overflow: hidden;
-}
-.sidebar {
-    background-color:#2E2E2E;
-    height: 100vh;
 
+#buttons01 li a {
+  min-width: 13.75rem;
+  height: 3.125rem;
+  line-height: 3.125rem;
+  padding: 0 1.5625rem;
+  font-size: 0.625em;
+  font-family: 'Montserrat';
+  letter-spacing: 0.3rem;
+  padding-left: calc(0.3rem + 1.5625rem);
+  font-weight: 400;
+  border-radius: 0.375rem;
 }
+
+.main {
+  overflow: hidden;
+}
+
+.sidebar {
+  background-color: #2E2E2E;
+  height: 100vh;
+}
+
 .canvas {
-    background-color:#255;
-    height: 100vh;
-    
+  background-color: #255;
+  height: 100vh;
 }
+
 .maincanvas {
-    background-color: #2E2E2E;
-    height: 65vh;
+  background-color: #2E2E2E;
+  height: 65vh;
 }
-.filters{
-    background-color:#2E2E2E;
-    height:35vh;
-    margin-top: 20px;
-    overflow: scroll;
+
+.filters {
+  background-color: #2E2E2E;
+  height: 35vh;
+  margin-top: 20px;
+  overflow: scroll;
 }
+
 .active {
-    background-color:#2E2E2E;
+  background-color: #2E2E2E;
 }
+
 .tabs .tab a {
-    color:white;
-} 
+  color: white;
+}
+
 .card-content img {
-    max-width: 100%;
+  max-width: 100%;
 }
-#content{
-    height: 100vh;
-    position: fixed; 
-    width: 100vw;  
+
+#content {
+  height: 100vh;
+  position: fixed;
+  width: 100vw;
 }
-.side{
-    overflow-y: scroll;
-    height: 90vh;
-} 
-#maincanvas{
-    width: 100%;
-    height: 50vh;
-    object-fit: contain;
+
+.side {
+  overflow-y: scroll;
+  height: 90vh;
 }
-.delete-image{
-    color: #ADD8E6;
-}    
+
+#maincanvas {
+  width: 100%;
+  height: 50vh;
+  object-fit: contain;
+}
+
+.delete-image {
+  color: #ADD8E6;
+}

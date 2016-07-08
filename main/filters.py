@@ -4,6 +4,7 @@ from PIL import Image, ImageFilter
 
 
 def apply_effect(filter, image):
+    """Method to handle applying of filters to images"""
     original = Image.open(image)
     path = settings.base.MEDIA_ROOT + '/editedphotos/'
     if not os.path.exists(path):
