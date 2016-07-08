@@ -145,3 +145,7 @@ ACCOUNT_LOGOUT_ON_GET = True
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = 'media'
+
+if 'ON_HEROKU' in os.environ:
+    db_from_env = dj_database_url.config()
+    DATABASES['default'].update(db_from_env)

@@ -10,7 +10,7 @@ before_install:
 install:
   - "pip install coveralls" 
 script:
-  - python manage.py test --noinput
+  - python manage.py test --noinput --settings=photogenic.settings
 after_success:
   - coveralls
 branches:
