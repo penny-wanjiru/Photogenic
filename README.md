@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/andela-pwanjiru/Photogenic.svg?branch=develop)](https://travis-ci.org/andela-pwanjiru/Photogenic)
+[![Coverage Status](https://coveralls.io/repos/github/andela-pwanjiru/Photogenic/badge.svg)](https://coveralls.io/github/andela-pwanjiru/Photogenic)
+
 # Photogenic app
 
   This app allows you to upload images, add filters to them and share on facebook.It consists of a django Rest API and a frontend built with react. 
