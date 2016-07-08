@@ -10,6 +10,7 @@ before_install:
 install:
   - "pip install coveralls" 
 script:
+  - export SECRET_KEY=$SECRET_KEY
   - python manage.py test --noinput --settings=photogenic.settings
 after_success:
   - coveralls
