@@ -8,7 +8,7 @@ class Maincanvas extends Component{
   }
   _fbshare(url){
     console.log(url)
-    window.location.assign(`https://www.facebook.com/sharer/sharer.php?u=${this.props.url}` )
+    window.location.assign(`https://www.facebook.com/sharer/sharer.php?u=${this.props.url} target=_blank` )
   }
  
   render() {
