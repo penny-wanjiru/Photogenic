@@ -22,8 +22,9 @@ class Filtered extends Component{
 class Filters extends Component{
 
 _displayfilteredImages() {
-  const filters = ['find_edges', 'edge_enhance_more', 'edge_enhance', 'detail', 'emboss', 
-                    'smooth_more', 'smooth', 'sharpen', 'contour', 'blur']
+  const filters = ['blur', 'contour', 'sharpen', 'smooth', 'smooth_more',
+                   'emboss', 'detail', 'edge_enhance',
+                   'edge_enhance_more', 'find_edges']
   return (this.props.filteredImages.map((image) => {
     return(<Filtered
 

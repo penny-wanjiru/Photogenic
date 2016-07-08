@@ -40,25 +40,3 @@ def apply_effect(filter, image):
         find_edges = original.filter(ImageFilter.FIND_EDGES)
         find_edges.save(file_path)
     return file_path[6:]
-
-# for filter in effects_list:
-
-# try:
-
-#     # Load an image from the hard drive
-#     original = Image.open(image)
-
-#     # Blur the image
-#     blurred = original.filter(ImageFilter.CONTOUR)
-    
-#     # Display both images
-#     # original.show()
-#     blurred.show()
-    
-
-#     # save the new image
-#     blurred.save("blurred.png")
-
-
-# except:
-#     print "Unable to load image"

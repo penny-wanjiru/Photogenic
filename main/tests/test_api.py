@@ -9,10 +9,10 @@ from django.core.urlresolvers import reverse
 
 
 def get_temporary_image(temp_file):
-        """Generate dummy image file."""
-        image = Image.new('RGBA', size=(50, 50), color=(155, 0, 0))
-        image.save(temp_file, 'jpeg')
-        return temp_file
+    """Generate dummy image file."""
+    image = Image.new('RGBA', size=(50, 50), color=(155, 0, 0))
+    image.save(temp_file, 'jpeg')
+    return temp_file
 
 
 class MainAPITestCase(APITestCase):
