@@ -1,19 +1,18 @@
 language: python
 python:
   - "2.7"
-environment:
-    DJANGO_SETTINGS_MODULE: photogenic.settings.test  
+branches:
+  only:
+  - develop
 services:
   - postgresql
 before_install:
   - "pip install -r requirements.txt"
 install:
   - "pip install coveralls" 
+env:
+  - SECRET_KEY='&gj3fvzp2p@lh2eo^1w618g4nd!3ztlhg8jl)^z+qr4iv+zdez'  
 script:
-  - export SECRET_KEY=$SECRET_KEY
-  - python manage.py test --noinput --settings=photogenic.settings
+  - python manage.py test --noinput --settings=photogenic.settings.test
 after_success:
   - coveralls
-branches:
-  only:
-  - develop
