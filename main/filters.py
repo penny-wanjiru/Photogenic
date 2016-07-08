@@ -5,7 +5,7 @@ from PIL import Image, ImageFilter
 
 def apply_effect(filter, image):
     original = Image.open(image)
-    path = settings.MEDIA_ROOT + '/editedphotos/'
+    path = settings.base.MEDIA_ROOT + '/editedphotos/'
     if not os.path.exists(path):
             os.makedirs(path)
     file_path = path + filter + '-' + os.path.basename(image.name)
