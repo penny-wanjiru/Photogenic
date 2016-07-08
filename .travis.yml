@@ -7,6 +7,8 @@ before_install:
   - "pip install -r requirements.txt"
 install:
   - "pip install coveralls"
+env:
+  - SECRET_KEY='&gj3fvzp2p@lh2eo^1w618g4nd!3ztlhg8jl)^z+qr4iv+zdez'  
 script:
   - python manage.py test --noinput
 after_success:
