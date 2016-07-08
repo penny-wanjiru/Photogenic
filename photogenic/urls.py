@@ -17,6 +17,7 @@ from django.conf.urls import url, include
 from django.contrib import admin
 from main.views import login_view
 import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     url(r'^$', login_view.as_view(), name='index'),
@@ -26,4 +27,4 @@ urlpatterns = [
     url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {
         'document_root': settings.MEDIA_ROOT,
     }),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
