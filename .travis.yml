@@ -13,6 +13,6 @@ install:
 env:
   - SECRET_KEY='&gj3fvzp2p@lh2eo^1w618g4nd!3ztlhg8jl)^z+qr4iv+zdez'  
 script:
-  - coverage manage.py test --noinput --settings=photogenic.settings.test
+  - coverage run manage.py test --noinput --settings=photogenic.settings.test
 after_success:
   - coveralls
