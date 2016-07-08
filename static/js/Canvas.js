@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import Maincanvas from "./Maincanvas.js"
 import Filters from "./Filters.js"
- //es6
+
 class Canvas extends Component{
   constructor(props) {
     super(props);
@@ -33,8 +33,8 @@ class Canvas extends Component{
           <div className="col m12">
                 <form action="#">
                   <div className="file-field input-field">
-                  <Maincanvas url={this.state.filteredurl || this.props.url}/>
-                  <Filters filteredImages={this.props.filteredImages} onFilterClick={this._onFilterClick}/>  
+                    <Maincanvas url={this.state.filteredurl || this.props.url}/>
+                    <Filters filteredImages={this.props.filteredImages} onFilterClick={this._onFilterClick}/>  
                   </div>
                 </form>
           </div>

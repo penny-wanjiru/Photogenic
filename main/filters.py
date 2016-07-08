@@ -1,4 +1,5 @@
 import os
+
 from photogenic import settings
 from PIL import Image, ImageFilter
 

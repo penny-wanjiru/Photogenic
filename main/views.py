@@ -1,30 +1,28 @@
+from django.shortcuts import render
+from django.views.generic import TemplateView
+from django.views.decorators.csrf import csrf_exempt
+from models import Images, FilteredImage
+from rest_framework.permissions import IsAuthenticated
+
+from restriction import CsrfExemptSessionAuthentication
+from rest_framework.generics import (
+    ListCreateAPIView,
+    RetrieveDestroyAPIView,
+    RetrieveAPIView
+)
 from .serializers import (
     ImageSerializer,
     FilteredImgSerializer
 )
-from rest_framework.generics import (
-    ListCreateAPIView,
-    RetrieveDestroyAPIView,
-    RetrieveUpdateAPIView,
-    RetrieveAPIView
-)
-from django.shortcuts import render
-from django.views.generic import TemplateView
-from rest_framework.permissions import IsAuthenticated
-from rest_framework.authentication import BasicAuthentication
-from django.views.decorators.csrf import csrf_exempt
-
-from restriction import CsrfExemptSessionAuthentication
-from models import Images, FilteredImage
 
 
-class login_view(TemplateView):
+class Login_view(TemplateView):
     """Handles login URL"""
     def get(self, request):
         return render(request, 'login.html')
 
 
-class main_view(TemplateView):
+class Main_view(TemplateView):
     """Handles display of dashboard"""
     def get(self, request):
         return render(request, 'app.html')
@@ -62,7 +60,7 @@ class FilteredCreateView(ListCreateAPIView):
     permission_classes = [IsAuthenticated]
 
     def get_queryset(self):
-        """"Return previews as per original photo id."""
+        """Handle url to get the user's filtered images"""
         pk = self.kwargs.get('pk')
         return FilteredImage.objects.filter(originalimage=pk)
 
@@ -72,10 +70,8 @@ class EditedImageView(RetrieveAPIView):
     serializer_class = FilteredImgSerializer
 
     def get_queryset(self):
-        """Return previews as per original photo id."""
+        """Handle url to get the user's filtered image with id"""
         parent_id = self.kwargs.get('photo_id')
         filter_id = self.kwargs.get('pk')
         return FilteredImage.objects.filter(originalimage=parent_id,
                                             pk=filter_id)
-
-
