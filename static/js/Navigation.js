@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+ import React, { Component } from "react";
 import request from 'superagent';
 
 
@@ -9,7 +9,6 @@ class SideImage extends Component{
     this.props.updatefilters(this.props.id)
     
   }
-
   _clickdel(e){
     this.props.deleteimage(this.props.id)
   }

@@ -5,12 +5,14 @@ from django.test import override_settings
 import tempfile
 from django.contrib.auth.models import User
 
+
 def get_temporary_image(temp_file):
     size = (200, 200)
     color = (255, 0, 0, 0)
     image = Image.new("RGBA", size, color)
     image.save(temp_file, 'jpeg')
     return temp_file
+
 
 class ModelTests(TestCase):
 

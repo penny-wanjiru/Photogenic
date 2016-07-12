@@ -3,11 +3,7 @@ import React, {Component} from "react";
 
 class Maincanvas extends Component{
 
-  _onDeletePreview(){
-    this.setState({url: undefined})
-  }
   _fbshare(url){
-    console.log(url)
     window.location.assign(`https://www.facebook.com/sharer/sharer.php?u=${this.props.url} target=_blank` )
   }
  

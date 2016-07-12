@@ -44,10 +44,7 @@ class Main extends Component{
   _getfilteredimages(imageId) {
     request
       .get(`/images/${imageId}/edited`)
-      .end((err, result) => {  
-        if (err) {
-          console.log(err)
-        }
+      .end((err, result) => { 
         if (result) {
           this.setState({
             filteredImages: result.body,
@@ -94,16 +91,13 @@ class Main extends Component{
     } 
   }
 
-  _onDeletePreview(){
-    this.setState({url: undefined})
-  }
 
   render() {
     return (
       <div className="main">
         <div className="row">
           <Nav onAddItem={this._addimage} photos={this.state.images} onImageClick={this._updateView} updatefilters={this._getfilteredimages} deleteimage={this._deleteImage}/>
-          <Canvas clearCanvas={this._onDeletePreview} url={this.state.url} filteredImages={this.state.filteredImages} />
+          <Canvas url={this.state.url} filteredImages={this.state.filteredImages} />
         </div>  
       </div>
     );
