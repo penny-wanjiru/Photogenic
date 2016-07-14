@@ -47,7 +47,8 @@ class MainAPITestCase(APITestCase):
 
     @override_settings(MEDIA_ROOT=tempfile.gettempdir())
     def test_get_filtered_image(self):
-        """ Test a user can view all filter for a specific image"""
+        """ Test a user can view all filtered
+            images for a specific original image"""
         temp = tempfile.NamedTemporaryFile(suffix=".jpg").name
         test_image = get_temporary_image(temp)
         self.client.login(username="administrator", password="administrator")
@@ -76,4 +77,3 @@ class MainAPITestCase(APITestCase):
         delete_response = self.client.delete('/images/1/')
         self.assertEqual(delete_response.status_code, 204)
         self.assertEqual(Images.objects.count(), 0)
-

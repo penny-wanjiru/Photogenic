@@ -3,6 +3,7 @@ import React, {Component} from "react";
 class Filtered extends Component{
 
   _clicked(e){
+    window.Materialize.toast('Applying filter...', 2000);
     this.props.onFilterClick(this.props.url)
   }
 
@@ -11,7 +12,7 @@ class Filtered extends Component{
       <div className="col s12 m3">
         <div className="card blue-grey darken-1">
           <div className="card-content white-text">
-            <img src={this.props.url} onClick={() => this.props.onFilterClick(this.props.url)}/>
+            <img className={this.props.url} src={this.props.url} onClick={this._clicked.bind(this)}/>
             <p className="effect_name">{this.props.filterName}</p>
           </div>  
         </div>

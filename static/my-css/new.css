@@ -39,22 +39,26 @@
 }
 
 .sidebar {
-  background-color: #2E2E2E;
+  background-color: #262626;
   height: 100vh;
 }
 
 .canvas {
-  background-color: #255;
+  background-image: url('/static/img/bg.svg'), linear-gradient(#6E436C, #2A4584);
+  background-color: rgba(0, 0, 0, 0.70);
+  background-blend-mode: overlay;
+  background-size: cover;
+  height: 100%;
   height: 100vh;
 }
 
 .maincanvas {
-  background-color: #2E2E2E;
+  background-color: #262626;
   height: 65vh;
 }
 
 .filters {
-  background-color: #2E2E2E;
+  background-color: #262626;
   height: 35vh;
   margin-top: 20px;
   overflow: scroll;
@@ -84,11 +88,50 @@
 }
 
 #maincanvas {
-  width: 100%;
+  width: 85%;
   height: 50vh;
   object-fit: contain;
 }
 
+.sidemain {
+  background-color: #2E2E2E;
+}
+
 .delete-image {
   color: #ADD8E6;
+}
+
+.card {
+  background-color: red;
+}
+
+.buttons {
+  border-radius: 4px;
+  border: 0;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: bold;
+  height: 3.3em;
+  line-height: 3.3em;
+  padding: 0 1.5em;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  background-color: transparent;
+  cursor: pointer;
+  color: #fff !important;
+  box-sizing: border-box;
+  box-shadow: inset 0 0 0 2px rgba(0, 188, 212, 1);
+}
+
+.btn:hover {
+  background-color: rgba(0, 188, 212, 1)!important;
+}
+
+.tabs .tab a {
+  color: rgba(232, 210, 239, 1)!important;
+}
+
+.tabs .indicator {
+  background-color: rgba(232, 210, 239, 1) !important;
 }

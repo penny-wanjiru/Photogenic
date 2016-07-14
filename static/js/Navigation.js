@@ -1,4 +1,4 @@
- import React, { Component } from "react";
+import React, { Component } from "react";
 import request from 'superagent';
 
 
@@ -6,10 +6,11 @@ class SideImage extends Component{
 
   _clicked(e){
     this.props.onImageClick(this.props.url)
-    this.props.updatefilters(this.props.id)
-    
+    this.props.updatefilters(this.props.id)  
   }
+  
   _clickdel(e){
+    if (!confirm('Are you sure you want to delete this image')) return;
     this.props.deleteimage(this.props.id)
   }
 
@@ -78,7 +79,7 @@ class Nav extends Component {
         <div className = "side col s12 m12" > 
           <form action = "#">
             <div className = "file-field input-field">
-              <div className = "btn" >
+              <div className = "btn" style={{backgroundColor:'#99b9f3'}} >
                 <span> Upload </span> 
                 <input type = "file" id = "file_upload" onChange = { this._handleUpload} />
               </div> 

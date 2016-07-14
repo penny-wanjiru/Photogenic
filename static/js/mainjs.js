@@ -23,7 +23,8 @@ class Main extends Component{
   }
 
   _addimage(formData) {
-    let images = this.state.images    
+    let images = this.state.images  
+    window.Materialize.toast('Uploading your image...', 2000);  
     request
       .post('/main/images/')
       .send(formData)
@@ -90,7 +91,6 @@ class Main extends Component{
       })
     } 
   }
-
 
   render() {
     return (

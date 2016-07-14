@@ -54,13 +54,13 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _greetings = __webpack_require__(168);
+	var _mainjs = __webpack_require__(168);
 
-	var _greetings2 = _interopRequireDefault(_greetings);
+	var _mainjs2 = _interopRequireDefault(_mainjs);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	_reactDom2.default.render(_react2.default.createElement(_greetings2.default, null), document.getElementById('content'));
+	_reactDom2.default.render(_react2.default.createElement(_mainjs2.default, null), document.getElementById('content'));
 
 /***/ },
 /* 1 */
@@ -20368,10 +20368,6 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	// import main from "./main.js"
-
-	//es6
-
 	var Main = function (_Component) {
 	  _inherits(Main, _Component);
 
@@ -20403,16 +20399,15 @@
 	      var _this2 = this;
 
 	      var images = this.state.images;
+	      window.Materialize.toast('Uploading your image...', 2000);
 	      _superagent2.default.post('/main/images/').send(formData).end(function (err, result) {
 	        if (err) {
-	          console.log('error: ', err);
 	          window.Materialize.toast('Oops there seems to be a problem uploading!', 2000);
 	        } else {
 	          window.Materialize.toast('Your image has been uploaded', 2000);
 	          _this2.setState({
 	            images: [result.body].concat(_toConsumableArray(_this2.state.images))
 	          });
-	          console.log(images);
 	        }
 	      });
 	    }
@@ -20421,23 +20416,12 @@
 	    value: function _getfilteredimages(imageId) {
 	      var _this3 = this;
 
-	      console.log(imageId);
 	      _superagent2.default.get("/images/" + imageId + "/edited").end(function (err, result) {
-	        if (err) {
-	          console.log(err);
-	        }
 	        if (result) {
 	          _this3.setState({
 	            filteredImages: result.body
 	          });
 	        }
-
-	        console.log(_this3.state.filteredImages);
-
-	        // } else {
-	        //   this.setState({
-	        //     filteredImages: [],
-	        //   });
 	      });
 	    }
 	  }, {
@@ -20482,11 +20466,6 @@
 	      }
 	    }
 	  }, {
-	    key: "_onDeletePreview",
-	    value: function _onDeletePreview() {
-	      this.setState({ url: undefined });
-	    }
-	  }, {
 	    key: "render",
 	    value: function render() {
 	      return _react2.default.createElement(
@@ -20496,7 +20475,7 @@
 	          "div",
 	          { className: "row" },
 	          _react2.default.createElement(_Navigation2.default, { onAddItem: this._addimage, photos: this.state.images, onImageClick: this._updateView, updatefilters: this._getfilteredimages, deleteimage: this._deleteImage }),
-	          _react2.default.createElement(_Canvas2.default, { clearCanvas: this._onDeletePreview, url: this.state.url, filteredImages: this.state.filteredImages })
+	          _react2.default.createElement(_Canvas2.default, { url: this.state.url, filteredImages: this.state.filteredImages })
 	        )
 	      );
 	    }
@@ -20508,23 +20487,11 @@
 	;
 	exports.default = Main;
 
-	//es5
-	/*
-	var Hello = React.createClass({
-	   render: function() {
-	       return (
-	           <div>Hello</div>
-	       )
-	   }
-	})
-	module.exports = Hello
-	*/
-
 /***/ },
 /* 169 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -20558,45 +20525,46 @@
 	  }
 
 	  _createClass(SideImage, [{
-	    key: "_clicked",
+	    key: '_clicked',
 	    value: function _clicked(e) {
 	      this.props.onImageClick(this.props.url);
 	      this.props.updatefilters(this.props.id);
 	    }
 	  }, {
-	    key: "_clickdel",
+	    key: '_clickdel',
 	    value: function _clickdel(e) {
+	      if (!confirm('Are you sure you want to delete this image')) return;
 	      this.props.deleteimage(this.props.id);
 	    }
 	  }, {
-	    key: "render",
+	    key: 'render',
 	    value: function render() {
 	      return _react2.default.createElement(
-	        "div",
-	        { className: "row" },
+	        'div',
+	        { className: 'row' },
 	        _react2.default.createElement(
-	          "div",
-	          { className: "col s12 m12" },
+	          'div',
+	          { className: 'col s12 m12' },
 	          _react2.default.createElement(
-	            "div",
-	            { className: "card blue-grey darken-1" },
+	            'div',
+	            { className: 'card blue-grey darken-1' },
 	            _react2.default.createElement(
-	              "div",
-	              { className: "card-content white-text" },
-	              _react2.default.createElement("img", { src: this.props.url, onClick: this._clicked.bind(this) })
+	              'div',
+	              { className: 'card-content white-text' },
+	              _react2.default.createElement('img', { src: this.props.url, onClick: this._clicked.bind(this) })
 	            ),
 	            _react2.default.createElement(
-	              "div",
-	              { className: "card-action" },
-	              "Uploaded: ",
+	              'div',
+	              { className: 'card-action' },
+	              'Uploaded: ',
 	              this.props.date_created,
 	              _react2.default.createElement(
-	                "a",
-	                { style: { marginLeft: 20 }, className: "delete tooltipped", "data-position": "right", onClick: this._clickdel.bind(this), href: "#" },
+	                'a',
+	                { style: { marginLeft: 20 }, className: 'delete tooltipped', 'data-position': 'right', onClick: this._clickdel.bind(this), href: '#' },
 	                _react2.default.createElement(
-	                  "i",
-	                  { className: "material-icons delete-image" },
-	                  "delete"
+	                  'i',
+	                  { className: 'material-icons delete-image' },
+	                  'delete'
 	                )
 	              )
 	            )
@@ -20609,9 +20577,6 @@
 	  return SideImage;
 	}(_react.Component);
 
-	//es6 component to upload image
-
-
 	var Nav = function (_Component2) {
 	  _inherits(Nav, _Component2);
 
@@ -20622,12 +20587,11 @@
 
 	    _this2._handleUpload = _this2._handleUpload.bind(_this2);
 	    _this2._displayImages = _this2._displayImages.bind(_this2);
-
 	    return _this2;
 	  }
 
 	  _createClass(Nav, [{
-	    key: "_displayImages",
+	    key: '_displayImages',
 	    value: function _displayImages() {
 	      var _this3 = this;
 
@@ -20648,7 +20612,7 @@
 	      });
 	    }
 	  }, {
-	    key: "_handleUpload",
+	    key: '_handleUpload',
 	    value: function _handleUpload(event) {
 	      var files = document.getElementById('file_upload').files;
 	      var formData = new FormData();
@@ -20658,56 +20622,54 @@
 	      this.props.onAddItem(formData);
 	    }
 	  }, {
-	    key: "render",
+	    key: 'render',
 	    value: function render() {
 	      var sideImages = this._displayImages();
 	      return _react2.default.createElement(
-	        "div",
-	        { className: "col m3 sidebar" },
+	        'div',
+	        { className: 'col m3 sidebar' },
 	        _react2.default.createElement(
-	          "ul",
-	          { className: "tabs" },
+	          'ul',
+	          { className: 'tabs' },
 	          _react2.default.createElement(
-	            "li",
-	            { className: "tab select col s6 active", style: { color: 'white' } },
-	            " ",
+	            'li',
+	            { className: 'tab select col s6 active', style: { color: 'white' } },
+	            ' ',
 	            _react2.default.createElement(
-	              "a",
-	              { href: "#" },
-	              " IMAGES "
+	              'a',
+	              { href: '#' },
+	              ' IMAGES '
 	            )
 	          )
 	        ),
 	        _react2.default.createElement(
-	          "div",
-	          { className: "side col s12 m12" },
+	          'div',
+	          { className: 'side col s12 m12' },
 	          _react2.default.createElement(
-	            "form",
-	            { action: "#" },
+	            'form',
+	            { action: '#' },
 	            _react2.default.createElement(
-	              "div",
-	              { className: "file-field input-field" },
+	              'div',
+	              { className: 'file-field input-field' },
 	              _react2.default.createElement(
-	                "div",
-	                { className: "btn" },
+	                'div',
+	                { className: 'btn', style: { backgroundColor: '#99b9f3' } },
 	                _react2.default.createElement(
-	                  "span",
+	                  'span',
 	                  null,
-	                  " Upload "
+	                  ' Upload '
 	                ),
-	                _react2.default.createElement("input", { type: "file", id: "file_upload", onChange: this._handleUpload })
+	                _react2.default.createElement('input', { type: 'file', id: 'file_upload', onChange: this._handleUpload })
 	              ),
 	              _react2.default.createElement(
-	                "div",
-	                { className: "file-path-wrapper" },
-	                _react2.default.createElement("input", { className: "file-path validate", type: "text" })
-	              ),
-	              " "
+	                'div',
+	                { className: 'file-path-wrapper' },
+	                _react2.default.createElement('input', { className: 'file-path validate', type: 'text' })
+	              )
 	            )
 	          ),
 	          sideImages
-	        ),
-	        " "
+	        )
 	      );
 	    }
 	  }]);
@@ -20716,7 +20678,6 @@
 	}(_react.Component);
 
 	;
-
 	exports.default = Nav;
 
 /***/ },
@@ -22342,8 +22303,6 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	//es6
-
 	var Canvas = function (_Component) {
 	  _inherits(Canvas, _Component);
 
@@ -22365,11 +22324,6 @@
 	      this.setState({
 	        filteredurl: null
 	      });
-	    }
-	  }, {
-	    key: "_handleprop",
-	    value: function _handleprop(e) {
-	      this.props.select();
 	    }
 	  }, {
 	    key: "_onFilterClick",
@@ -22432,8 +22386,6 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	//es6
-
 	var Maincanvas = function (_Component) {
 	  _inherits(Maincanvas, _Component);
 
@@ -22444,15 +22396,9 @@
 	  }
 
 	  _createClass(Maincanvas, [{
-	    key: "_onDeletePreview",
-	    value: function _onDeletePreview() {
-	      this.setState({ url: undefined });
-	    }
-	  }, {
 	    key: "_fbshare",
 	    value: function _fbshare(url) {
-	      console.log(url);
-	      window.location.assign("https://www.facebook.com/sharer/sharer.php?u=" + this.props.url);
+	      window.location.assign("https://www.facebook.com/sharer/sharer.php?u=" + this.props.url + " target=_blank");
 	    }
 	  }, {
 	    key: "render",
@@ -22465,17 +22411,17 @@
 	          { className: "col m12 maincanvas" },
 	          _react2.default.createElement(
 	            "div",
-	            { className: "col m12" },
+	            { className: "col m9", style: { marginLeft: 100 } },
 	            _react2.default.createElement(
 	              "form",
 	              { action: "#" },
 	              _react2.default.createElement(
 	                "div",
 	                { className: "file-field input-field" },
-	                _react2.default.createElement("img", { src: this.props.url, id: "maincanvas" }),
+	                this.props.url ? _react2.default.createElement("img", { src: this.props.url, id: "maincanvas" }) : _react2.default.createElement("img", { src: "../static/images/place.jpg", id: "maincanvas" }),
 	                _react2.default.createElement(
 	                  "a",
-	                  { href: this.props.url, style: { marginTop: 15, marginLeft: 160 }, className: "btn", download: true },
+	                  { href: this.props.url, style: { marginTop: 15, marginLeft: 70, backgroundColor: '#99b9f3' }, className: "btn", download: true },
 	                  _react2.default.createElement("i", { className: "material-icons left" }),
 	                  "Download"
 	                ),
@@ -22484,13 +22430,17 @@
 	                  { style: { marginTop: 15, marginLeft: 20, backgroundColor: '#3B5998' }, className: "btn", onClick: this._fbshare.bind(this) },
 	                  _react2.default.createElement("i", { className: "material-icons left" }),
 	                  "Share on facebook"
-	                ),
-	                _react2.default.createElement(
-	                  "a",
-	                  { href: "/accounts/logout", style: { marginTop: 15, marginLeft: 20 }, className: "btn" },
-	                  "Logout"
 	                )
 	              )
+	            )
+	          ),
+	          _react2.default.createElement(
+	            "div",
+	            { className: "col m1" },
+	            _react2.default.createElement(
+	              "a",
+	              { href: "/accounts/logout", style: { marginRight: 500, marginTop: 15 }, className: "buttons" },
+	              "Log Out"
 	            )
 	          )
 	        )
@@ -22540,13 +22490,12 @@
 	  _createClass(Filtered, [{
 	    key: "_clicked",
 	    value: function _clicked(e) {
+	      window.Materialize.toast('Applying filter...', 2000);
 	      this.props.onFilterClick(this.props.url);
 	    }
 	  }, {
 	    key: "render",
 	    value: function render() {
-	      var _this2 = this;
-
 	      return _react2.default.createElement(
 	        "div",
 	        { className: "col s12 m3" },
@@ -22556,9 +22505,7 @@
 	          _react2.default.createElement(
 	            "div",
 	            { className: "card-content white-text" },
-	            _react2.default.createElement("img", { src: this.props.url, onClick: function onClick() {
-	                return _this2.props.onFilterClick(_this2.props.url);
-	              } }),
+	            _react2.default.createElement("img", { className: this.props.url, src: this.props.url, onClick: this._clicked.bind(this) }),
 	            _react2.default.createElement(
 	              "p",
 	              { className: "effect_name" },
@@ -22572,8 +22519,6 @@
 
 	  return Filtered;
 	}(_react.Component);
-	//es6
-
 
 	var Filters = function (_Component2) {
 	  _inherits(Filters, _Component2);
@@ -22587,18 +22532,16 @@
 	  _createClass(Filters, [{
 	    key: "_displayfilteredImages",
 	    value: function _displayfilteredImages() {
-	      var _this4 = this;
+	      var _this3 = this;
 
-	      var filters = ['find_edges', 'edge_enhance_more', 'edge_enhance', 'detail', 'emboss', 'smooth_more', 'smooth', 'sharpen', 'contour', 'blur'];
+	      var filters = ['blur', 'contour', 'sharpen', 'smooth', 'smooth_more', 'emboss', 'detail', 'edge_enhance', 'edge_enhance_more', 'find_edges'];
 	      return this.props.filteredImages.map(function (image) {
 	        return _react2.default.createElement(Filtered, {
-
 	          key: image.id,
 	          url: image.image,
 	          body: image.image,
-	          filterName: filters[_this4.props.filteredImages.indexOf(image)],
-	          onFilterClick: _this4.props.onFilterClick
-
+	          filterName: filters[_this3.props.filteredImages.indexOf(image)],
+	          onFilterClick: _this3.props.onFilterClick
 	        });
 	      });
 	    }

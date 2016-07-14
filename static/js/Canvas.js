@@ -24,7 +24,7 @@ class Canvas extends Component{
   }
 
   render() {
-    return ( 
+    return (
       <div className="col m9 canvas">
         <div className="col m12">
           <form action="#">
