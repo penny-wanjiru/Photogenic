@@ -16,13 +16,13 @@ from .serializers import (
 )
 
 
-class Login_view(TemplateView):
+class LoginView(TemplateView):
     """Handles login URL"""
     def get(self, request):
         return render(request, 'login.html')
 
 
-class Main_view(TemplateView):
+class MainView(TemplateView):
     """Handles display of dashboard"""
     def get(self, request):
         return render(request, 'app.html')

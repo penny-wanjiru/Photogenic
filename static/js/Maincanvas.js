@@ -3,9 +3,24 @@ import React, {Component} from "react";
 
 class Maincanvas extends Component{
 
-  _fbshare(url){
-    window.location.assign(`https://www.facebook.com/sharer/sharer.php?u=${this.props.url} target=_blank` )
-  }
+  _fbShare(url){
+    window.FB.ui(
+      {
+        method: 'share',
+        href: this.props.url
+      },
+      // callback
+      function(response) {
+        console.log(response)
+        if (response && !response.error_message) {
+          alert('Posting completed');
+        } else {
+          alert('Error while posting');
+        }
+      }
+  );
+    // window.location.assign(`https://www.facebook.com/sharer/sharer.php?u=${this.props.url}`)
+  } 
  
   render() {
     return ( 
@@ -19,10 +34,9 @@ class Maincanvas extends Component{
                   :<img src='../static/images/place.jpg' id="maincanvas"/>
                 }    
                 <a href={this.props.url} style={{marginTop: 15, marginLeft:70, backgroundColor:'#99b9f3' }} className="btn" download><i className="material-icons left"></i>Download</a>
-                <a style={{marginTop: 15, marginLeft:20, backgroundColor:'#3B5998'}} className="btn"  onClick={this._fbshare.bind(this)}><i className="material-icons left"></i>Share on facebook</a>     
+                <a style={{marginTop: 15, marginLeft:20, backgroundColor:'#3B5998'}} className="btn" onClick={this._fbShare.bind(this)}><i className="material-icons left"></i>Share on facebook</a>     
               </div>
-            </form>
-            
+            </form>  
           </div>
           <div className="col m1">
             <a href="/accounts/logout" style={{marginRight:500, marginTop:15}} className="buttons">Log Out</a>

@@ -3,7 +3,7 @@ import React, {Component} from "react";
 class Filtered extends Component{
 
   _clicked(e){
-    window.Materialize.toast('Applying filter...', 2000);
+    window.Materialize.toast('Applying filter...', 1000);
     this.props.onFilterClick(this.props.url)
   }
 
@@ -23,7 +23,7 @@ class Filtered extends Component{
 
 class Filters extends Component{
 
-  _displayfilteredImages() {
+  _displayFilteredImages() {
     const filters = ['blur', 'contour', 'sharpen', 'smooth', 'smooth_more',
                     'emboss', 'detail', 'edge_enhance',
                     'edge_enhance_more', 'find_edges']
@@ -40,7 +40,7 @@ class Filters extends Component{
   }
 
   render() {
-    const filteredImages = this._displayfilteredImages()
+    const filteredImages = this._displayFilteredImages()
     return ( 
       <div>
         <div className="row">

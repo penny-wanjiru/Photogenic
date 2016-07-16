@@ -20346,13 +20346,13 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Navigation = __webpack_require__(169);
+	var _navigation = __webpack_require__(169);
 
-	var _Navigation2 = _interopRequireDefault(_Navigation);
+	var _navigation2 = _interopRequireDefault(_navigation);
 
-	var _Canvas = __webpack_require__(176);
+	var _canvas = __webpack_require__(176);
 
-	var _Canvas2 = _interopRequireDefault(_Canvas);
+	var _canvas2 = _interopRequireDefault(_canvas);
 
 	var _superagent = __webpack_require__(170);
 
@@ -20381,9 +20381,9 @@
 	      url: '',
 	      filteredImages: []
 	    };
-	    _this._addimage = _this._addimage.bind(_this);
+	    _this._addImage = _this._addImage.bind(_this);
 	    _this._updateView = _this._updateView.bind(_this);
-	    _this._getfilteredimages = _this._getfilteredimages.bind(_this);
+	    _this._getFilteredImages = _this._getFilteredImages.bind(_this);
 	    _this._deleteImage = _this._deleteImage.bind(_this);
 	    return _this;
 	  }
@@ -20391,11 +20391,11 @@
 	  _createClass(Main, [{
 	    key: "componentDidMount",
 	    value: function componentDidMount() {
-	      this._getimages();
+	      this._getImages();
 	    }
 	  }, {
-	    key: "_addimage",
-	    value: function _addimage(formData) {
+	    key: "_addImage",
+	    value: function _addImage(formData) {
 	      var _this2 = this;
 
 	      var images = this.state.images;
@@ -20412,8 +20412,8 @@
 	      });
 	    }
 	  }, {
-	    key: "_getfilteredimages",
-	    value: function _getfilteredimages(imageId) {
+	    key: "_getFilteredImages",
+	    value: function _getFilteredImages(imageId) {
 	      var _this3 = this;
 
 	      _superagent2.default.get("/images/" + imageId + "/edited").end(function (err, result) {
@@ -20425,8 +20425,8 @@
 	      });
 	    }
 	  }, {
-	    key: "_getimages",
-	    value: function _getimages() {
+	    key: "_getImages",
+	    value: function _getImages() {
 	      var _this4 = this;
 
 	      _superagent2.default.get('/main/images/').end(function (err, result) {
@@ -20474,8 +20474,8 @@
 	        _react2.default.createElement(
 	          "div",
 	          { className: "row" },
-	          _react2.default.createElement(_Navigation2.default, { onAddItem: this._addimage, photos: this.state.images, onImageClick: this._updateView, updatefilters: this._getfilteredimages, deleteimage: this._deleteImage }),
-	          _react2.default.createElement(_Canvas2.default, { url: this.state.url, filteredImages: this.state.filteredImages })
+	          _react2.default.createElement(_navigation2.default, { onAddItem: this._addImage, photos: this.state.images, onImageClick: this._updateView, updateFilters: this._getFilteredImages, deleteImage: this._deleteImage }),
+	          _react2.default.createElement(_canvas2.default, { url: this.state.url, filteredImages: this.state.filteredImages })
 	        )
 	      );
 	    }
@@ -20528,11 +20528,11 @@
 	    key: '_clicked',
 	    value: function _clicked(e) {
 	      this.props.onImageClick(this.props.url);
-	      this.props.updatefilters(this.props.id);
+	      this.props.updateFilters(this.props.id);
 	    }
 	  }, {
-	    key: '_clickdel',
-	    value: function _clickdel(e) {
+	    key: '_clickDel',
+	    value: function _clickDel(e) {
 	      if (!confirm('Are you sure you want to delete this image')) return;
 	      this.props.deleteimage(this.props.id);
 	    }
@@ -20560,7 +20560,7 @@
 	              this.props.date_created,
 	              _react2.default.createElement(
 	                'a',
-	                { style: { marginLeft: 20 }, className: 'delete tooltipped', 'data-position': 'right', onClick: this._clickdel.bind(this), href: '#' },
+	                { style: { marginLeft: 5 }, className: 'delete tooltipped', 'data-position': 'right', onClick: this._clickDel.bind(this), href: '#' },
 	                _react2.default.createElement(
 	                  'i',
 	                  { className: 'material-icons delete-image' },
@@ -20603,9 +20603,9 @@
 	          photo: image,
 	          body: image.image,
 	          onImageClick: _this3.props.onImageClick,
-	          updatefilters: _this3.props.updatefilters,
+	          updateFilters: _this3.props.updateFilters,
 	          update: _this3._updated,
-	          deleteimage: _this3.props.deleteimage,
+	          deleteImage: _this3.props.deleteImage,
 	          date_created: image.date_created,
 	          date_updated: image.date_updated
 	        });
@@ -22287,13 +22287,13 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Maincanvas = __webpack_require__(177);
+	var _maincanvas = __webpack_require__(177);
 
-	var _Maincanvas2 = _interopRequireDefault(_Maincanvas);
+	var _maincanvas2 = _interopRequireDefault(_maincanvas);
 
-	var _Filters = __webpack_require__(178);
+	var _filters = __webpack_require__(178);
 
-	var _Filters2 = _interopRequireDefault(_Filters);
+	var _filters2 = _interopRequireDefault(_filters);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -22312,7 +22312,7 @@
 	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Canvas).call(this, props));
 
 	    _this.state = {
-	      filteredurl: null
+	      filteredUrl: null
 	    };
 	    _this._onFilterClick = _this._onFilterClick.bind(_this);
 	    return _this;
@@ -22322,14 +22322,14 @@
 	    key: "componentWillReceiveProps",
 	    value: function componentWillReceiveProps(nextProps) {
 	      this.setState({
-	        filteredurl: null
+	        filteredUrl: null
 	      });
 	    }
 	  }, {
 	    key: "_onFilterClick",
 	    value: function _onFilterClick(url) {
 	      this.setState({
-	        filteredurl: url
+	        filteredUrl: url
 	      });
 	    }
 	  }, {
@@ -22347,8 +22347,8 @@
 	            _react2.default.createElement(
 	              "div",
 	              { className: "file-field input-field" },
-	              _react2.default.createElement(_Maincanvas2.default, { url: this.state.filteredurl || this.props.url }),
-	              _react2.default.createElement(_Filters2.default, { filteredImages: this.props.filteredImages, onFilterClick: this._onFilterClick })
+	              _react2.default.createElement(_maincanvas2.default, { url: this.state.filteredUrl || this.props.url }),
+	              _react2.default.createElement(_filters2.default, { filteredImages: this.props.filteredImages, onFilterClick: this._onFilterClick })
 	            )
 	          )
 	        )
@@ -22366,7 +22366,7 @@
 /* 177 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -22396,51 +22396,65 @@
 	  }
 
 	  _createClass(Maincanvas, [{
-	    key: "_fbshare",
-	    value: function _fbshare(url) {
-	      window.location.assign("https://www.facebook.com/sharer/sharer.php?u=" + this.props.url + " target=_blank");
+	    key: '_fbShare',
+	    value: function _fbShare(url) {
+	      console.log(this.props.url);
+	      window.FB.ui({
+	        method: 'share',
+	        href: this.props.url
+	      },
+	      // callback
+	      function (response) {
+	        console.log(response);
+	        if (response && !response.error_message) {
+	          alert('Posting completed');
+	        } else {
+	          alert('Error while posting');
+	        }
+	      });
+	      // window.location.assign(`https://www.facebook.com/sharer/sharer.php?u=${this.props.url}`)
 	    }
 	  }, {
-	    key: "render",
+	    key: 'render',
 	    value: function render() {
 	      return _react2.default.createElement(
-	        "div",
+	        'div',
 	        null,
 	        _react2.default.createElement(
-	          "div",
-	          { className: "col m12 maincanvas" },
+	          'div',
+	          { className: 'col m12 maincanvas' },
 	          _react2.default.createElement(
-	            "div",
-	            { className: "col m9", style: { marginLeft: 100 } },
+	            'div',
+	            { className: 'col m9', style: { marginLeft: 100 } },
 	            _react2.default.createElement(
-	              "form",
-	              { action: "#" },
+	              'form',
+	              { action: '#' },
 	              _react2.default.createElement(
-	                "div",
-	                { className: "file-field input-field" },
-	                this.props.url ? _react2.default.createElement("img", { src: this.props.url, id: "maincanvas" }) : _react2.default.createElement("img", { src: "../static/images/place.jpg", id: "maincanvas" }),
+	                'div',
+	                { className: 'file-field input-field' },
+	                this.props.url ? _react2.default.createElement('img', { src: this.props.url, id: 'maincanvas' }) : _react2.default.createElement('img', { src: '../static/images/place.jpg', id: 'maincanvas' }),
 	                _react2.default.createElement(
-	                  "a",
-	                  { href: this.props.url, style: { marginTop: 15, marginLeft: 70, backgroundColor: '#99b9f3' }, className: "btn", download: true },
-	                  _react2.default.createElement("i", { className: "material-icons left" }),
-	                  "Download"
+	                  'a',
+	                  { href: this.props.url, style: { marginTop: 15, marginLeft: 70, backgroundColor: '#99b9f3' }, className: 'btn', download: true },
+	                  _react2.default.createElement('i', { className: 'material-icons left' }),
+	                  'Download'
 	                ),
 	                _react2.default.createElement(
-	                  "a",
-	                  { style: { marginTop: 15, marginLeft: 20, backgroundColor: '#3B5998' }, className: "btn", onClick: this._fbshare.bind(this) },
-	                  _react2.default.createElement("i", { className: "material-icons left" }),
-	                  "Share on facebook"
+	                  'a',
+	                  { style: { marginTop: 15, marginLeft: 20, backgroundColor: '#3B5998' }, className: 'btn', onClick: this._fbShare.bind(this) },
+	                  _react2.default.createElement('i', { className: 'material-icons left' }),
+	                  'Share on facebook'
 	                )
 	              )
 	            )
 	          ),
 	          _react2.default.createElement(
-	            "div",
-	            { className: "col m1" },
+	            'div',
+	            { className: 'col m1' },
 	            _react2.default.createElement(
-	              "a",
-	              { href: "/accounts/logout", style: { marginRight: 500, marginTop: 15 }, className: "buttons" },
-	              "Log Out"
+	              'a',
+	              { href: '/accounts/logout', style: { marginRight: 500, marginTop: 15 }, className: 'buttons' },
+	              'Log Out'
 	            )
 	          )
 	        )
@@ -22490,7 +22504,7 @@
 	  _createClass(Filtered, [{
 	    key: "_clicked",
 	    value: function _clicked(e) {
-	      window.Materialize.toast('Applying filter...', 2000);
+	      window.Materialize.toast('Applying filter...', 1000);
 	      this.props.onFilterClick(this.props.url);
 	    }
 	  }, {
@@ -22530,8 +22544,8 @@
 	  }
 
 	  _createClass(Filters, [{
-	    key: "_displayfilteredImages",
-	    value: function _displayfilteredImages() {
+	    key: "_displayFilteredImages",
+	    value: function _displayFilteredImages() {
 	      var _this3 = this;
 
 	      var filters = ['blur', 'contour', 'sharpen', 'smooth', 'smooth_more', 'emboss', 'detail', 'edge_enhance', 'edge_enhance_more', 'find_edges'];
@@ -22548,7 +22562,7 @@
 	  }, {
 	    key: "render",
 	    value: function render() {
-	      var filteredImages = this._displayfilteredImages();
+	      var filteredImages = this._displayFilteredImages();
 	      return _react2.default.createElement(
 	        "div",
 	        null,

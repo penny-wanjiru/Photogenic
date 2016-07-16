@@ -1,25 +1,25 @@
 import React, {Component} from "react";
-import Maincanvas from "./Maincanvas.js"
-import Filters from "./Filters.js"
+import Maincanvas from "./maincanvas.js"
+import Filters from "./filters.js"
 
 class Canvas extends Component{
   constructor(props) {
     super(props);
     this.state = {
-      filteredurl: null,
+      filteredUrl: null,
     }
   this._onFilterClick = this._onFilterClick.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
     this.setState({
-      filteredurl: null
+      filteredUrl: null
     })
   }
 
   _onFilterClick(url){
     this.setState({
-    filteredurl:url
+    filteredUrl:url
     })
   }
 
@@ -29,7 +29,7 @@ class Canvas extends Component{
         <div className="col m12">
           <form action="#">
             <div className="file-field input-field">
-              <Maincanvas url={this.state.filteredurl || this.props.url}/>
+              <Maincanvas url={this.state.filteredUrl || this.props.url}/>
               <Filters filteredImages={this.props.filteredImages} onFilterClick={this._onFilterClick}/>  
             </div>
           </form>

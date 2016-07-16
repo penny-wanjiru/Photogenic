@@ -1,6 +1,6 @@
 import React, {Component} from "react";
-import Nav from "./Navigation.js"
-import Canvas from "./Canvas.js"
+import Nav from "./navigation.js"
+import Canvas from "./canvas.js"
 import request from 'superagent'
 
 
@@ -12,17 +12,17 @@ class Main extends Component{
       url:'',
       filteredImages: []
     }
-  this._addimage = this._addimage.bind(this);
+  this._addImage = this._addImage.bind(this);
   this._updateView = this._updateView.bind(this);
-  this._getfilteredimages = this._getfilteredimages.bind(this);
+  this._getFilteredImages = this._getFilteredImages.bind(this);
   this._deleteImage = this. _deleteImage.bind(this);
   }
 
   componentDidMount() {
-    this._getimages()
+    this._getImages()
   }
 
-  _addimage(formData) {
+  _addImage(formData) {
     let images = this.state.images  
     window.Materialize.toast('Uploading your image...', 2000);  
     request
@@ -42,7 +42,7 @@ class Main extends Component{
       );
   }
 
-  _getfilteredimages(imageId) {
+  _getFilteredImages(imageId) {
     request
       .get(`/images/${imageId}/edited`)
       .end((err, result) => { 
@@ -54,7 +54,7 @@ class Main extends Component{
       });
   }
 
-  _getimages() {
+  _getImages() {
     request
       .get('/main/images/')
       .end((err, result) => {
@@ -96,7 +96,7 @@ class Main extends Component{
     return (
       <div className="main">
         <div className="row">
-          <Nav onAddItem={this._addimage} photos={this.state.images} onImageClick={this._updateView} updatefilters={this._getfilteredimages} deleteimage={this._deleteImage}/>
+          <Nav onAddItem={this._addImage} photos={this.state.images} onImageClick={this._updateView} updateFilters={this._getFilteredImages} deleteImage={this._deleteImage}/>
           <Canvas url={this.state.url} filteredImages={this.state.filteredImages} />
         </div>  
       </div>

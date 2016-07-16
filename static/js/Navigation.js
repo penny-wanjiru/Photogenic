@@ -6,10 +6,10 @@ class SideImage extends Component{
 
   _clicked(e){
     this.props.onImageClick(this.props.url)
-    this.props.updatefilters(this.props.id)  
+    this.props.updateFilters(this.props.id)
   }
-  
-  _clickdel(e){
+
+  _clickDel(e){
     if (!confirm('Are you sure you want to delete this image')) return;
     this.props.deleteimage(this.props.id)
   }
@@ -24,7 +24,7 @@ class SideImage extends Component{
             </div>
             <div className="card-action">
               Uploaded: {this.props.date_created}
-            <a style={{marginLeft: 20}} className="delete tooltipped" data-position="right" onClick={this._clickdel.bind(this)} href="#"><i className="material-icons delete-image">delete</i></a>
+              <a style={{marginLeft: 5}} className="delete tooltipped" data-position="right" onClick={this._clickDel.bind(this)} href="#"><i className="material-icons delete-image">delete</i></a>
              </div>
           </div>
         </div>
@@ -50,9 +50,9 @@ class Nav extends Component {
           photo={image}
           body={image.image}
           onImageClick={this.props.onImageClick}
-          updatefilters={this.props.updatefilters}
+          updateFilters={this.props.updateFilters}
           update={this._updated}
-          deleteimage={this.props.deleteimage}
+          deleteImage={this.props.deleteImage}
           date_created={image.date_created}
           date_updated={image.date_updated}
         />
@@ -74,7 +74,7 @@ class Nav extends Component {
     return (   
       <div className = "col m3 sidebar">
         <ul className = "tabs" >
-          <li className = "tab select col s6 active" style={{color:'white'}}> <a href = "#" > IMAGES </a></li>
+          <li className = "tab select col s6 active" style={{color:'white'}}> <a href = "#"> IMAGES </a></li>
         </ul>   
         <div className = "side col s12 m12" > 
           <form action = "#">
