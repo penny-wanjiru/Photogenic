@@ -134,7 +134,6 @@ STATICFILES_DIRS = (
 )
 STATIC_URL = '/static/'
 AUTHENTICATION_BACKENDS = (
-    'social.backends.facebook.FacebookOAuth2'
     'django.contrib.auth.backends.ModelBackend',
     'allauth.account.auth_backends.AuthenticationBackend',
 )
