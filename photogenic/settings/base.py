@@ -134,12 +134,12 @@ STATICFILES_DIRS = (
 )
 STATIC_URL = '/static/'
 AUTHENTICATION_BACKENDS = (
+    'social.backends.facebook.FacebookOAuth2'
     'django.contrib.auth.backends.ModelBackend',
     'allauth.account.auth_backends.AuthenticationBackend',
 )
 
 SITE_ID = 1
-SUCCESS_URL='/main/'
 
 LOGIN_REDIRECT_URL = '/main/'
 ACCOUNT_LOGOUT_ON_GET = True
