@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 
 
-class Maincanvas extends Component{
+class MainCanvas extends Component{
 
   _fbShare(url){
     window.FB.ui(
@@ -46,4 +46,4 @@ class Maincanvas extends Component{
     );
   }
 };
-export default Maincanvas
+export default MainCanvas

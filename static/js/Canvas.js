@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import Maincanvas from "./maincanvas.js"
+import MainCanvas from "./maincanvas.js"
 import Filters from "./filters.js"
 
 class Canvas extends Component{
@@ -29,7 +29,7 @@ class Canvas extends Component{
         <div className="col m12">
           <form action="#">
             <div className="file-field input-field">
-              <Maincanvas url={this.state.filteredUrl || this.props.url}/>
+              <MainCanvas url={this.state.filteredUrl || this.props.url}/>
               <Filters filteredImages={this.props.filteredImages} onFilterClick={this._onFilterClick}/>  
             </div>
           </form>
