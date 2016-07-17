@@ -18,8 +18,7 @@ class MainCanvas extends Component{
           alert('Error while posting');
         }
       }
-  );
-    // window.location.assign(`https://www.facebook.com/sharer/sharer.php?u=${this.props.url}`)
+    );
   } 
  
   render() {
