@@ -75,7 +75,7 @@ class Main extends Component{
       .delete(`/images/${imageId}/`)
       .end((err, result) => {
         if (result.status === 204) {
-          this._getimages();
+          this._getImages();
         } else {
           this.setState({
             deleteError: true,
