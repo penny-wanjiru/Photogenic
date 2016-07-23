@@ -20448,7 +20448,7 @@
 
 	      _superagent2.default.delete("/images/" + imageId + "/").end(function (err, result) {
 	        if (result.status === 204) {
-	          _this5._getimages();
+	          _this5._getImages();
 	        } else {
 	          _this5.setState({
 	            deleteError: true
@@ -20534,7 +20534,7 @@
 	    key: '_clickDel',
 	    value: function _clickDel(e) {
 	      if (!confirm('Are you sure you want to delete this image')) return;
-	      this.props.deleteimage(this.props.id);
+	      this.props.deleteImage(this.props.id);
 	    }
 	  }, {
 	    key: 'render',
@@ -22386,19 +22386,18 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var Maincanvas = function (_Component) {
-	  _inherits(Maincanvas, _Component);
+	var MainCanvas = function (_Component) {
+	  _inherits(MainCanvas, _Component);
 
-	  function Maincanvas() {
-	    _classCallCheck(this, Maincanvas);
+	  function MainCanvas() {
+	    _classCallCheck(this, MainCanvas);
 
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Maincanvas).apply(this, arguments));
+	    return _possibleConstructorReturn(this, Object.getPrototypeOf(MainCanvas).apply(this, arguments));
 	  }
 
-	  _createClass(Maincanvas, [{
+	  _createClass(MainCanvas, [{
 	    key: '_fbShare',
 	    value: function _fbShare(url) {
-	      console.log(this.props.url);
 	      window.FB.ui({
 	        method: 'share',
 	        href: this.props.url
@@ -22412,7 +22411,6 @@
 	          alert('Error while posting');
 	        }
 	      });
-	      // window.location.assign(`https://www.facebook.com/sharer/sharer.php?u=${this.props.url}`)
 	    }
 	  }, {
 	    key: 'render',
@@ -22462,11 +22460,11 @@
 	    }
 	  }]);
 
-	  return Maincanvas;
+	  return MainCanvas;
 	}(_react.Component);
 
 	;
-	exports.default = Maincanvas;
+	exports.default = MainCanvas;
 
 /***/ },
 /* 178 */
