@@ -135,3 +135,17 @@
 .tabs .indicator {
   background-color: rgba(232, 210, 239, 1) !important;
 }
+
+.mainheading {
+  font-family: Grand Hotel;
+  letter-spacing: 3px;
+  font-weight: 100;
+  color: black;
+}
+
+.maincard {
+  font-family: Source Sans Pro;
+  letter-spacing: 6px;
+  font-weight: 50;
+  margin-bottom: 40px;
+}
