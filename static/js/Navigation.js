@@ -11,7 +11,7 @@ class SideImage extends Component{
 
   _clickDel(e){
     if (!confirm('Are you sure you want to delete this image')) return;
-    this.props.deleteimage(this.props.id)
+    this.props.deleteImage(this.props.id)
   }
 
   render() {
