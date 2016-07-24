@@ -22427,10 +22427,10 @@
 	            _react2.default.createElement(
 	              'form',
 	              { action: '#' },
-	              _react2.default.createElement(
+	              this.props.url ? _react2.default.createElement(
 	                'div',
 	                { className: 'file-field input-field' },
-	                this.props.url ? _react2.default.createElement('img', { src: this.props.url, id: 'maincanvas' }) : _react2.default.createElement('img', { src: '../static/images/place.jpg', id: 'maincanvas' }),
+	                _react2.default.createElement('img', { src: this.props.url, id: 'maincanvas' }),
 	                _react2.default.createElement(
 	                  'a',
 	                  { href: this.props.url, style: { marginTop: 15, marginLeft: 70, backgroundColor: '#99b9f3' }, className: 'btn', download: true },
@@ -22443,6 +22443,10 @@
 	                  _react2.default.createElement('i', { className: 'material-icons left' }),
 	                  'Share on facebook'
 	                )
+	              ) : _react2.default.createElement(
+	                'div',
+	                { className: 'file-field input-field' },
+	                _react2.default.createElement('img', { src: '../static/images/place.jpg', id: 'maincanvas' })
 	              )
 	            )
 	          ),
