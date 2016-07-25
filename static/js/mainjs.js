@@ -16,6 +16,7 @@ class Main extends Component{
   this._updateView = this._updateView.bind(this);
   this._getFilteredImages = this._getFilteredImages.bind(this);
   this._deleteImage = this. _deleteImage.bind(this);
+  this._onDeleteImage = this._onDeleteImage.bind(this);
   }
 
   componentDidMount() {
@@ -51,6 +52,11 @@ class Main extends Component{
             filteredImages: result.body,
           })
         }
+        if (err) {
+          this.setState({
+            filteredImages: []
+          })
+        }
       });
   }
 
@@ -70,12 +76,18 @@ class Main extends Component{
       });
   }
 
+  _onDeleteImage(){
+    this.setState({url: ''})
+  }
+
   _deleteImage(imageId) {  
     request
       .delete(`/images/${imageId}/`)
       .end((err, result) => {
         if (result.status === 204) {
           this._getImages();
+          this._getFilteredImages();
+          this._onDeleteImage();
         } else {
           this.setState({
             deleteError: true,

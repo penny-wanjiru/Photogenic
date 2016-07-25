@@ -20385,6 +20385,7 @@
 	    _this._updateView = _this._updateView.bind(_this);
 	    _this._getFilteredImages = _this._getFilteredImages.bind(_this);
 	    _this._deleteImage = _this._deleteImage.bind(_this);
+	    _this._onDeleteImage = _this._onDeleteImage.bind(_this);
 	    return _this;
 	  }
 
@@ -20422,6 +20423,11 @@
 	            filteredImages: result.body
 	          });
 	        }
+	        if (err) {
+	          _this3.setState({
+	            filteredImages: []
+	          });
+	        }
 	      });
 	    }
 	  }, {
@@ -20442,6 +20448,11 @@
 	      });
 	    }
 	  }, {
+	    key: "_onDeleteImage",
+	    value: function _onDeleteImage() {
+	      this.setState({ url: '' });
+	    }
+	  }, {
 	    key: "_deleteImage",
 	    value: function _deleteImage(imageId) {
 	      var _this5 = this;
@@ -20449,6 +20460,8 @@
 	      _superagent2.default.delete("/images/" + imageId + "/").end(function (err, result) {
 	        if (result.status === 204) {
 	          _this5._getImages();
+	          _this5._getFilteredImages();
+	          _this5._onDeleteImage();
 	        } else {
 	          _this5.setState({
 	            deleteError: true
@@ -22551,6 +22564,9 @@
 	      var _this3 = this;
 
 	      var filters = ['blur', 'contour', 'sharpen', 'smooth', 'smooth_more', 'emboss', 'detail', 'edge_enhance', 'edge_enhance_more', 'find_edges'];
+	      if (this.props.filteredImages === []) {
+	        return null;
+	      }
 	      return this.props.filteredImages.map(function (image) {
 	        return _react2.default.createElement(Filtered, {
 	          key: image.id,

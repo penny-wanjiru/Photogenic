@@ -27,6 +27,10 @@ class Filters extends Component{
     const filters = ['blur', 'contour', 'sharpen', 'smooth', 'smooth_more',
                     'emboss', 'detail', 'edge_enhance',
                     'edge_enhance_more', 'find_edges']
+    if (this.props.filteredImages === [])
+    {
+      return null;
+    }
     return (this.props.filteredImages.map((image) => {
       return(
         <Filtered
