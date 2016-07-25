@@ -5,28 +5,45 @@ class Filtered extends Component{
   _clicked(e){
     window.Materialize.toast('Applying filter...', 1000);
     this.props.onFilterClick(this.props.url)
+    this.props.onActive(this.props.effect);
   }
 
   render() {
-    return( 
-      <div className="col s12 m3">
-        <div className="card blue-grey darken-1">
-          <div className="card-content white-text">
-            <img className={this.props.url} src={this.props.url} onClick={this._clicked.bind(this)}/>
-            <p className="effect_name">{this.props.filterName}</p>
-          </div>  
-        </div>
-      </div>     
+    return(
+      (this.props.clicked)
+        ?<div className="col s12 m3 active">
+          <div className="card blue-grey darken-1">
+            <div className="card-content white-text">
+              <img className={this.props.url} src={this.props.url} onClick={this._clicked.bind(this)}/>
+              <p className="effect_name">{this.props.effect}</p>
+            </div>  
+          </div>
+        </div>  
+        :<div className="col s12 m3">
+          <div className="card blue-grey darken-1">
+            <div className="card-content white-text">
+              <img className={this.props.url} src={this.props.url} onClick={this._clicked.bind(this)}/>
+              <p className="effect_name">{this.props.effect}</p>
+            </div>  
+          </div>
+        </div>         
     )
   }
 }
 
 class Filters extends Component{
+  constructor() {
+    super();
+    this.state  ={
+      effect: '',
+    }
+  }
+
+  _updateClicked(effect) {
+    this.setState({effect: effect})
+  }
 
   _displayFilteredImages() {
-    const filters = ['blur', 'contour', 'sharpen', 'smooth', 'smooth_more',
-                    'emboss', 'detail', 'edge_enhance',
-                    'edge_enhance_more', 'find_edges']
     if (this.props.filteredImages === [])
     {
       return null;
@@ -36,9 +53,10 @@ class Filters extends Component{
         <Filtered
           key={image.id}
           url={image.image}
-          body={image.image}
-          filterName={filters[this.props.filteredImages.indexOf(image)]}
+          effect={image.effect}
           onFilterClick={this.props.onFilterClick}
+          clicked={this.state.effect==image.effect}
+          onActive={this._updateClicked.bind(this)}
         />)
     }))
   }

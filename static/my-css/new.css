@@ -44,7 +44,7 @@
 }
 
 .canvas {
-  background-image: url('/static/img/bg.svg'), linear-gradient(#6E436C, #2A4584);
+  background-image: url('/static/images/bg.svg'), linear-gradient(#6E436C, #2A4584);
   background-color: rgba(0, 0, 0, 0.70);
   background-blend-mode: overlay;
   background-size: cover;
@@ -65,11 +65,11 @@
 }
 
 .active {
-  background-color: #2E2E2E;
+  background-color: #8ea7af;
 }
 
 .tabs .tab a {
-  color: white;
+  color: black;
 }
 
 .card-content img {
@@ -125,15 +125,15 @@
 }
 
 .btn:hover {
-  background-color: rgba(0, 188, 212, 1)!important;
+  background-color: #26a69a!important;
 }
 
 .tabs .tab a {
-  color: rgba(232, 210, 239, 1)!important;
+  color: #263238 !important;
 }
 
 .tabs .indicator {
-  background-color: rgba(232, 210, 239, 1) !important;
+  background-color: #263238 !important;
 }
 
 .mainheading {

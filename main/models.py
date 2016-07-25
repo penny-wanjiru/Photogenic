@@ -27,7 +27,8 @@ class FilteredImage(models.Model):
     image = models.ImageField(upload_to='editedphotos')
     date_created = models.DateField(auto_now_add=True)
     date_updated = models.DateField(auto_now=True)
-    originalimage = models.ForeignKey(Images, related_name="filters")
+    originalimage = models.ForeignKey(Images, related_name="filters", on_delete=models.CASCADE)
+    effect = models.CharField(max_length=255)
 
 
 @receiver(post_save, sender=Images)
@@ -36,5 +37,5 @@ def main_effect(sender, instance, **kwargs):
     image = instance.image
     for filter in filters:
         applied = apply_effect(filter, image)
-        edited=FilteredImage.objects.create(image=applied, originalimage=instance)
+        edited = FilteredImage.objects.create(image=applied, originalimage=instance, effect=filter)
         edited.save()

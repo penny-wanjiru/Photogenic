@@ -1,8 +1,16 @@
 import React, { Component } from "react";
 import request from 'superagent';
 
+const style = {
+  delete: {
+    marginLeft: 5
+  },
+  uploadbtn: {
+    backgroundColor:'#99b9f3'
+  }  
+};
 
-class SideImage extends Component{
+class SideImage extends Component {
 
   _clicked(e){
     this.props.onImageClick(this.props.url)
@@ -24,7 +32,7 @@ class SideImage extends Component{
             </div>
             <div className="card-action">
               Uploaded: {this.props.date_created}
-              <a style={{marginLeft: 5}} className="delete tooltipped" data-position="right" onClick={this._clickDel.bind(this)} href="#"><i className="material-icons delete-image">delete</i></a>
+              <a style={style.delete} className="delete tooltipped" data-position="right" onClick={this._clickDel.bind(this)} href="#"><i className="material-icons delete-image">delete</i></a>
              </div>
           </div>
         </div>
@@ -74,12 +82,12 @@ class Nav extends Component {
     return (   
       <div className = "col m3 sidebar">
         <ul className = "tabs" >
-          <li className = "tab select col s6 active" style={{color:'white'}}> <a href = "#"> IMAGES </a></li>
+          <li className = "tab select col s6 title"> <a href = "#"> IMAGES </a></li>
         </ul>   
         <div className = "side col s12 m12" > 
           <form action = "#">
             <div className = "file-field input-field">
-              <div className = "btn" style={{backgroundColor:'#99b9f3'}} >
+              <div className = "btn" style={style.uploadbtn} >
                 <span> Upload </span> 
                 <input type = "file" id = "file_upload" onChange = { this._handleUpload} />
               </div> 
