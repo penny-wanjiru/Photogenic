@@ -1,0 +1,28 @@
+{
+  "name": "photogenic",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "babel-core": "^6.9.1",
+    "babel-loader": "^6.2.4",
+    "file-loader": "^0.8.5",
+    "optimistic": "0.0.3",
+    "react": "^15.1.0",
+    "webpack": "^1.13.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andela-pwanjiru/Photogenic.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/andela-pwanjiru/Photogenic/issues"
+  },
+  "homepage": "https://github.com/andela-pwanjiru/Photogenic#readme"
+}

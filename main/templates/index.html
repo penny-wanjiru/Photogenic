@@ -1,0 +1,24 @@
+{% load static %}
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Photogenic</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no" />
+    <link rel="stylesheet" type="text/css" href="{% static 'my-css/app.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'my-css/new.css' %}">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Source Sans Pro">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="{% static 'css/materialize.min.css' %}" media="screen,projection" />
+</head>
+
+<body class="is-loading" id="index">
+    {% block content %} 
+    {% endblock %}
+    <footer id="footer"></footer>
+    <script src="./static/js/build/bundle.js"></script>
+    <script type="text/javascript" src="{% static 'js/materialize.min.js' %}"></script>
+</body>
+
+</html>

@@ -1,0 +1,155 @@
+#photgenic-img {
+  width: 500px;
+  height: 350px;
+}
+
+.buttons {
+  cursor: default;
+  padding: 0;
+  letter-spacing: 0;
+}
+
+.buttons li a {
+  display: block;
+  text-decoration: none;
+  text-align: center;
+  word-break: break-all;
+}
+
+#buttons01 .n01 {
+  color: #FFFFFF;
+  border: solid 1px #FFFFFF;
+}
+
+#buttons01 li a {
+  min-width: 13.75rem;
+  height: 3.125rem;
+  line-height: 3.125rem;
+  padding: 0 1.5625rem;
+  font-size: 0.625em;
+  font-family: 'Montserrat';
+  letter-spacing: 0.3rem;
+  padding-left: calc(0.3rem + 1.5625rem);
+  font-weight: 400;
+  border-radius: 0.375rem;
+}
+
+.main {
+  overflow: hidden;
+}
+
+.sidebar {
+  background-color: #262626;
+  height: 100vh;
+}
+
+.canvas {
+  background-image: url('/static/images/bg.svg'), linear-gradient(#6E436C, #2A4584);
+  background-color: rgba(0, 0, 0, 0.70);
+  background-blend-mode: overlay;
+  background-size: cover;
+  height: 100%;
+  height: 100vh;
+}
+
+.maincanvas {
+  background-color: #262626;
+  height: 65vh;
+}
+
+.filters {
+  background-color: #262626;
+  height: 35vh;
+  margin-top: 20px;
+  overflow: scroll;
+}
+
+.active {
+  background-color: #8ea7af;
+}
+
+.tabs .tab a {
+  color: black;
+}
+
+.card-content img {
+  max-width: 100%;
+}
+
+#content {
+  height: 100vh;
+  position: fixed;
+  width: 100vw;
+}
+
+.side {
+  overflow-y: scroll;
+  height: 90vh;
+}
+
+#maincanvas {
+  width: 85%;
+  height: 50vh;
+  object-fit: contain;
+}
+
+.sidemain {
+  background-color: #2E2E2E;
+}
+
+.delete-image {
+  color: #ADD8E6;
+}
+
+.card {
+  background-color: red;
+}
+
+.buttons {
+  border-radius: 4px;
+  border: 0;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: bold;
+  height: 3.3em;
+  line-height: 3.3em;
+  padding: 0 1.5em;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  background-color: transparent;
+  cursor: pointer;
+  color: #fff !important;
+  box-sizing: border-box;
+  box-shadow: inset 0 0 0 2px rgba(0, 188, 212, 1);
+}
+
+.btn:hover {
+  background-color: #26a69a!important;
+}
+
+.tabs .tab a {
+  color: #263238 !important;
+}
+
+.tabs .indicator {
+  background-color: #263238 !important;
+}
+
+.mainheading {
+  font-family: Grand Hotel;
+  letter-spacing: 3px;
+  font-weight: 100;
+  color: black;
+}
+
+.maincard {
+  font-family: Source Sans Pro;
+  letter-spacing: 6px;
+  font-weight: 50;
+  margin-bottom: 40px;
+}
+
+.pointer {
+  cursor: pointer;
+}

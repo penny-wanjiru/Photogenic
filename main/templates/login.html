@@ -1,0 +1,38 @@
+{% extends "index.html" %} 
+{% load static %} 
+{% block content %}
+<div id="--main" class="active" style="width:400px; height:450px;">
+    <div class="--inner">
+        <div class="component-wrapper" data-type="image" data-id="image01">
+            <div class="inner">
+                <div class="component">
+                    <div class="--image placeholder" id="--image01" data-href=""><span data-alt=""></span></div>
+                </div>
+            </div>
+        </div>
+        <div class="component-wrapper" data-type="text" data-id="text01">
+            <div class="inner"><img class="logo" src="static/images/basic-camera.png" alt="" />
+            </div>
+            <div class="component-wrapper" data-type="divider" data-id="divider01">
+                <div class="inner">
+                    <div class="component">
+                        <div class="--hr" id="--divider01"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="component-wrapper" data-type="text" data-id="text02">
+                <h1 class="mainheading">Photogenic</h1>
+                <p class='maincard'>
+                    APPLY FILTERS #YESFILTER
+                    <br>SHARE ON FACEBOOK :)
+                </p>
+                <ul class="actions vertical">
+                    <li>
+                        <a href="/accounts/facebook/login/?process=login" class="button special fit" style="font-family: Source Sans Pro; letter-spacing: 2px; font-weight: 100;">LOGIN WITH FACEBOOK</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
