@@ -149,3 +149,7 @@
   font-weight: 50;
   margin-bottom: 40px;
 }
+
+.pointer {
+  cursor: pointer;
+}

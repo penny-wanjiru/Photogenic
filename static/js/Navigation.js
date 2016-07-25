@@ -25,7 +25,7 @@ class SideImage extends Component {
   render() {
     return(
       <div className="row">
-        <div className="col s12 m12">
+        <div className="pointer col s12 m12">
           <div className="card blue-grey darken-1">
             <div className="card-content white-text">
               <img src={this.props.url} onClick={this._clicked.bind(this)}/>
@@ -80,19 +80,19 @@ class Nav extends Component {
   render() {
     const sideImages = this._displayImages()
     return (   
-      <div className = "col m3 sidebar">
-        <ul className = "tabs" >
-          <li className = "tab select col s6 title"> <a href = "#"> IMAGES </a></li>
+      <div className="col m3 sidebar">
+        <ul className="tabs" >
+          <li className="tab select col s6 title"> <a href="#"> IMAGES </a></li>
         </ul>   
-        <div className = "side col s12 m12" > 
-          <form action = "#">
-            <div className = "file-field input-field">
-              <div className = "btn" style={style.uploadbtn} >
+        <div className="side col s12 m12" > 
+          <form action="#">
+            <div className="file-field input-field">
+              <div className="btn" style={style.uploadbtn} >
                 <span> Upload </span> 
-                <input type = "file" id = "file_upload" onChange = { this._handleUpload} />
+                <input type="file" id="file_upload" onChange={ this._handleUpload} />
               </div> 
-              <div className = "file-path-wrapper" >
-                <input className = "file-path validate"  type = "text" /> 
+              <div className="file-path-wrapper" >
+                <input className="file-path validate"  type="text" /> 
               </div>
             </div> 
           </form>

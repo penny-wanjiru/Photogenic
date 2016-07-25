@@ -20566,7 +20566,7 @@
 	        { className: 'row' },
 	        _react2.default.createElement(
 	          'div',
-	          { className: 'col s12 m12' },
+	          { className: 'pointer col s12 m12' },
 	          _react2.default.createElement(
 	            'div',
 	            { className: 'card blue-grey darken-1' },
@@ -20965,7 +20965,7 @@
 	    value: function render() {
 	      return this.props.clicked ? _react2.default.createElement(
 	        "div",
-	        { className: "col s12 m3 active" },
+	        { className: "pointer col s12 m3 active" },
 	        _react2.default.createElement(
 	          "div",
 	          { className: "card blue-grey darken-1" },
@@ -20982,7 +20982,7 @@
 	        )
 	      ) : _react2.default.createElement(
 	        "div",
-	        { className: "col s12 m3" },
+	        { className: "pointer col s12 m3" },
 	        _react2.default.createElement(
 	          "div",
 	          { className: "card blue-grey darken-1" },

@@ -11,7 +11,7 @@ class Filtered extends Component{
   render() {
     return(
       (this.props.clicked)
-        ?<div className="col s12 m3 active">
+        ?<div className="pointer col s12 m3 active">
           <div className="card blue-grey darken-1">
             <div className="card-content white-text">
               <img className={this.props.url} src={this.props.url} onClick={this._clicked.bind(this)}/>
@@ -19,7 +19,7 @@ class Filtered extends Component{
             </div>  
           </div>
         </div>  
-        :<div className="col s12 m3">
+        :<div className="pointer col s12 m3">
           <div className="card blue-grey darken-1">
             <div className="card-content white-text">
               <img className={this.props.url} src={this.props.url} onClick={this._clicked.bind(this)}/>
